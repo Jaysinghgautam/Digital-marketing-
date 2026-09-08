@@ -1,4 +1,4 @@
- import { useState } from "react";
+import { useState } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { Aperture, ArrowRight, Menu, X } from "lucide-react";
 
@@ -18,20 +18,18 @@ export default function Navbar() {
   return (
     <header className="relative sticky top-0 z-50 bg-[#0b1728]/95 backdrop-blur-md border-b border-white/10 shadow-lg">
       <div className="max-w-7xl mx-auto px-5 sm:px-6 h-[72px] flex items-center justify-between">
-        
+        {/* Logo */}
         {/* Logo */}
         <NavLink
           to="/"
           onClick={closeMenu}
           className="flex items-center gap-2.5 text-white font-semibold text-lg"
         >
-          <span className="w-9 h-9 rounded-lg bg-cyan-400 flex items-center justify-center">
-            <Aperture size={20} className="text-[#0b1728]" />
-          </span>
-
-          <span>
-            Ascend<span className="text-cyan-300"> Digital</span>
-          </span>
+          <img
+            src="/voopify.jpeg"
+            alt="Voopify"
+            className="h-10 w-auto object-contain"
+          />
         </NavLink>
 
         {/* Desktop Menu */}

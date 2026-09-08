@@ -33,16 +33,16 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid gap-12 md:grid-cols-[1.6fr_1fr_1fr]">
           <div>
-            <Link
-              to="/"
-              className="inline-flex items-center gap-2 text-white text-lg font-semibold"
-            >
-              <span className="w-9 h-9 rounded-lg bg-cyan-400 flex items-center justify-center">
-                <Aperture size={20} className="text-[#07111f]" />
-              </span>
-              Ascend Digital
-            </Link>
-
+ <Link
+  to="/"
+  className="inline-flex items-center transition-transform duration-300 hover:scale-105"
+>
+  <img
+    src="/voopify.jpeg"
+    alt="Voopify"
+    className="h-10 w-auto object-contain sm:h-11 md:h-12"
+  />
+</Link>
             <p className="mt-5 text-sm text-slate-400 leading-relaxed max-w-sm">
               A performance-focused digital marketing agency helping ambitious
               brands turn strategy, creativity, and data into sustainable growth.
