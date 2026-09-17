@@ -26,7 +26,7 @@ export default function Navbar() {
           className="flex items-center gap-2.5 text-white font-semibold text-lg"
         >
           <img
-            src="/voopify.jpeg"
+            src="/voopify.png"
             alt="Voopify"
             className="h-10 w-auto object-contain"
           />

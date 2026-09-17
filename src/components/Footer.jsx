@@ -38,7 +38,7 @@ export default function Footer() {
   className="inline-flex items-center transition-transform duration-300 hover:scale-105"
 >
   <img
-    src="/voopify.jpeg"
+    src="/voopify.png"
     alt="Voopify"
     className="h-10 w-auto object-contain sm:h-11 md:h-12"
   />
