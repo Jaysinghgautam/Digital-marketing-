@@ -40,7 +40,7 @@ export default function Footer() {
   <img
     src="/voopify.png"
     alt="Voopify"
-    className="h-10 w-auto object-contain sm:h-11 md:h-12"
+    className="h-14 w-auto object-contain sm:h-11 md:h-12"
   />
 </Link>
             <p className="mt-5 text-sm text-slate-400 leading-relaxed max-w-sm">
