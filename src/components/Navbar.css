@@ -1,0 +1,107 @@
+/* ══════════════════════════════════
+   NAVBAR COMPONENT STYLES
+══════════════════════════════════ */
+.desktop-nav {
+  display: none;
+}
+@media (min-width: 768px) {
+  .desktop-nav {
+    display: flex !important;
+  }
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+.nav-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+.nav-link-active {
+  color: #22d3ee !important;
+  background: rgba(34, 211, 238, 0.08) !important;
+}
+
+.nav-cta-btn {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  padding: 9px 20px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #22d3ee, #2dd4bf);
+  color: #070d18 !important;
+  font-weight: 800;
+  font-size: 0.875rem;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(34, 211, 238, 0.28);
+  transition: all 0.25s ease;
+}
+.nav-cta-btn:hover {
+  box-shadow: 0 6px 24px rgba(34, 211, 238, 0.45);
+  transform: translateY(-1px);
+}
+@media (min-width: 768px) {
+  .nav-cta-btn {
+    display: flex !important;
+  }
+}
+
+.mobile-menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: white;
+  cursor: pointer;
+}
+@media (min-width: 768px) {
+  .mobile-menu-btn {
+    display: none !important;
+  }
+}
+
+.mobile-drawer {
+  overflow: hidden;
+  max-height: 0;
+  background: #0a1929;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  transition: max-height 0.35s ease;
+}
+.mobile-drawer-open {
+  max-height: 600px;
+}
+
+.mobile-nav-link {
+  display: block;
+  padding: 13px 24px;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #94a3b8;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border-left: 2px solid transparent;
+}
+.mobile-nav-link:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.04);
+}
+.mobile-nav-link-active {
+  color: #22d3ee !important;
+  border-left-color: #22d3ee !important;
+  background: rgba(34, 211, 238, 0.05) !important;
+}
