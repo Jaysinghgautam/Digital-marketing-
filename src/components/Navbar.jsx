@@ -102,39 +102,12 @@ export default function Navbar() {
           onClick={closeAll}
           className="flex items-center gap-3 group shrink-0 select-none"
         >
-          <div className="relative flex items-center gap-2.5">
+          <div className="relative flex items-center">
             <img
               src="/voopify.png"
               alt="VOOPIFY"
-              className="h-10 sm:h-12 w-auto max-w-[160px] object-contain transition-transform duration-300 group-hover:scale-105"
-              onError={(e) => {
-                e.currentTarget.style.display = "none";
-                const fb = document.getElementById("logo-fallback");
-                if (fb) fb.style.display = "flex";
-              }}
+              className="h-10 sm:h-12 w-auto max-w-[200px] object-contain transition-transform duration-300 group-hover:scale-105"
             />
-            {/* Fallback Wordmark */}
-            <div
-              id="logo-fallback"
-              style={{ display: "none" }}
-              className="items-center gap-2"
-            >
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-tr from-purple-600 to-orange-400 flex items-center justify-center font-black text-white text-lg shadow-lg shadow-purple-300/40">
-                V
-              </div>
-              <span className="text-2xl font-black tracking-tight text-gray-900">
-                VOOP
-                <span
-                  style={{
-                    background: "linear-gradient(135deg,#7B2FF7,#FF6B35)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                  }}
-                >
-                  IFY
-                </span>
-              </span>
-            </div>
           </div>
 
           {/* Subtitle tag on larger screens */}

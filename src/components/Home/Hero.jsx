@@ -16,6 +16,11 @@ import Reveal from "../Reveal";
 
 const HERO_BACKGROUNDS = [
   {
+    url: "/hero_bg_1.jpg",
+    alt: "Voopify Creative Agency",
+    caption: "Creative Agency & Strategic Growth",
+  },
+  {
     url: "https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1920&q=80",
     alt: "Digital Marketing Agency Team",
     caption: "Strategic Marketing & Content",
