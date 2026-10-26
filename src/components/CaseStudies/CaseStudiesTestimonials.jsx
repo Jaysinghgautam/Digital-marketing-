@@ -1,51 +1,77 @@
-import { Target, BarChart3, TrendingUp, Star, Quote } from "lucide-react";
+import { Target, BarChart3, TrendingUp, Star, Quote, Sparkles } from "lucide-react";
 import Reveal from "../Reveal";
 
-const WHY = [
-  { icon: Target, title: "Diagnose Root Bottlenecks", text: "Before burning ad spend, we pinpoint exactly why prospective buyers bounce and fix unit economics first." },
-  { icon: BarChart3, title: "Measure What Matters", text: "No vanity impressions or empty clicks. We report pipeline qualified leads, customer acquisition cost, and net return on ad spend." },
-  { icon: TrendingUp, title: "Compound Winning Funnels", text: "Winning ad creatives and high-converting landing pages are turned into evergreen assets that produce results month after month." },
+const METHODOLOGY = [
+  {
+    icon: Target,
+    title: "Diagnose Root Bottlenecks",
+    text: "Before running a single rupee of ad spend, we audit why prospective customers leave and optimize your digital real estate first.",
+  },
+  {
+    icon: BarChart3,
+    title: "Commercial Outcomes Over Noise",
+    text: "No vanity impressions or useless social metrics. We measure qualified pipeline enquiries, cost per acquisition, and net EBITDA return.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Compounding Brand Assets",
+    text: "Winning video hooks, customer reviews, and high-ranking SEO pages become permanent company assets that work month after month.",
+  },
 ];
 
-const TESTIMONIALS = [
-  { name: "Rajeev Sharma", role: "CEO, TechBridge Systems", text: "Ascend Digital completely overhauled our lead funnels. Our monthly qualified B2B demos surged from 14 to 58 while ad costs decreased by 28%.", avatar: "https://randomuser.me/api/portraits/men/41.jpg" },
-  { name: "Priya Nair", role: "Founder, Lumio Skincare D2C", text: "Their short-form reel video production and Meta Ads pod tripled our organic website traffic and maintained a steady 4.2x ROAS during peak season.", avatar: "https://randomuser.me/api/portraits/women/33.jpg" },
-  { name: "Arvind Mehta", role: "CMO, SwiftCart Logistics", text: "The most transparent digital marketing squad we have ever hired. Weekly sprint reviews, honest guidance, and direct Slack communication.", avatar: "https://randomuser.me/api/portraits/men/55.jpg" },
+const REVIEWS = [
+  {
+    name: "Rajesh Singhal",
+    role: "Managing Director, Apex Castings",
+    text: "VOOPIFY gave us an agency-grade corporate identity and global export leads without the absurd ₹4L/month agency quotes.",
+  },
+  {
+    name: "Ananya Mehta",
+    role: "Founder, Ziva Botanicals",
+    text: "The hybrid human + AI workflow is real. We get 20+ creative reels and ad variants every sprint and our CAC dropped by 38%.",
+  },
+  {
+    name: "Dr. Vikram Sethi",
+    role: "Founder, Sethi Healthcare Clinics",
+    text: "The most transparent partner we've worked with. Weekly Looker Studio reviews, fast 48h turnaround, and no lock-in pressure.",
+  },
 ];
 
 export default function CaseStudiesTestimonials() {
   return (
     <>
-      {/* ── Why Section ── */}
-      <section style={{ background: "#0b1728", padding: "88px 0", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
+      {/* Methodology Section */}
+      <section className="bg-[#050914] py-20 md:py-28 border-t border-white/[0.08] relative">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
           
           <Reveal variant="up">
-            <div style={{ textAlign: "center", maxWidth: "600px", margin: "0 auto 56px" }}>
-              <div className="section-badge" style={{ marginBottom: "1rem" }}>
-                Our Methodology
-              </div>
-              <h2 style={{ fontSize: "clamp(2rem, 3.5vw, 2.8rem)", fontWeight: 900, color: "#f1f5f9", letterSpacing: "-0.02em" }}>
-                How we approach every <span className="grad-text">client account.</span>
+            <div className="text-center max-w-2xl mx-auto mb-16">
+              <span className="text-xs font-mono font-bold uppercase tracking-widest text-cyan-400 px-3.5 py-1.5 rounded-full bg-cyan-400/10 border border-cyan-400/20">
+                The VOOPIFY Method
+              </span>
+              <h2 className="mt-4 text-3xl sm:text-4xl font-black text-white tracking-tight">
+                How We Approach Every SME Account
               </h2>
             </div>
           </Reveal>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(280px,1fr))", gap: "24px" }}>
-            {WHY.map((w, i) => {
-              const Icon = w.icon;
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {METHODOLOGY.map((m, i) => {
+              const Icon = m.icon;
               return (
-                <Reveal key={w.title} variant="up" delay={i * 80}>
-                  <div className="glass-card" style={{ padding: "32px", height: "100%" }}>
-                    <div style={{ width: "48px", height: "48px", borderRadius: "14px", background: "rgba(34,211,238,0.1)", border: "1px solid rgba(34,211,238,0.25)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "20px", color: "#22d3ee" }}>
-                      <Icon size={22} />
+                <Reveal key={m.title} variant="up" delay={i * 100}>
+                  <div className="p-8 rounded-3xl bg-[#091122] border border-white/[0.08] hover:border-cyan-400/40 transition-all duration-300 h-full flex flex-col justify-between">
+                    <div>
+                      <div className="w-12 h-12 rounded-2xl bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center text-cyan-400 mb-6">
+                        <Icon className="w-6 h-6" />
+                      </div>
+                      <h3 className="text-lg font-bold text-white mb-2">
+                        {m.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                        {m.text}
+                      </p>
                     </div>
-                    <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#f1f5f9", marginBottom: "12px" }}>
-                      {w.title}
-                    </h3>
-                    <p style={{ fontSize: "0.9rem", color: "#94a3b8", lineHeight: 1.75, margin: 0 }}>
-                      {w.text}
-                    </p>
                   </div>
                 </Reveal>
               );
@@ -55,49 +81,33 @@ export default function CaseStudiesTestimonials() {
         </div>
       </section>
 
-      {/* ── Testimonials ── */}
-      <section style={{ background: "#070d18", padding: "96px 0", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
-          
-          <Reveal variant="up">
-            <div style={{ textAlign: "center", maxWidth: "600px", margin: "0 auto 56px" }}>
-              <div className="section-badge" style={{ marginBottom: "1rem" }}>
-                Founder Voices
-              </div>
-              <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 900, color: "#f1f5f9", letterSpacing: "-0.02em" }}>
-                Trusted by high-growth <span className="grad-text">founders.</span>
-              </h2>
-            </div>
-          </Reveal>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(300px,1fr))", gap: "24px" }}>
-            {TESTIMONIALS.map((t, i) => (
-              <Reveal key={t.name} variant="up" delay={i * 80}>
-                <div className="glass-card" style={{ padding: "32px", display: "flex", flexDirection: "column", justifyContent: "space-between", height: "100%" }}>
-                  <div>
-                    <Quote size={28} color="rgba(34,211,238,0.35)" style={{ marginBottom: "16px" }} />
-                    <p style={{ fontSize: "0.95rem", color: "#cbd5e1", lineHeight: 1.75, marginBottom: "24px", fontStyle: "italic" }}>
-                      "{t.text}"
-                    </p>
+      {/* Testimonials Strip */}
+      <section className="bg-[#070d18] py-20 border-t border-white/[0.08] relative">
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {REVIEWS.map((rev, rIdx) => (
+              <div key={rIdx} className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] flex flex-col justify-between">
+                <div>
+                  <div className="flex text-amber-400 gap-1 mb-3">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                    ))}
                   </div>
-
-                  <div style={{ display: "flex", alignItems: "center", gap: "14px", borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: "18px" }}>
-                    <img src={t.avatar} alt={t.name} style={{ width: "44px", height: "44px", borderRadius: "50%", objectFit: "cover", border: "1px solid rgba(34,211,238,0.3)" }} />
-                    <div>
-                      <p style={{ fontWeight: 700, fontSize: "0.92rem", color: "#f1f5f9", margin: 0 }}>{t.name}</p>
-                      <p style={{ fontSize: "0.78rem", color: "#64748b", margin: "2px 0 0" }}>{t.role}</p>
-                    </div>
-                    <div style={{ marginLeft: "auto", display: "flex", gap: "2px" }}>
-                      {[...Array(5)].map((_, j) => (
-                        <Star key={j} size={14} fill="#fbbf24" color="#fbbf24" />
-                      ))}
-                    </div>
+                  <p className="text-xs sm:text-sm text-slate-300 italic leading-relaxed">
+                    &ldquo;{rev.text}&rdquo;
+                  </p>
+                </div>
+                <div className="mt-4 pt-3 border-t border-white/[0.05]">
+                  <div className="text-xs font-bold text-white">
+                    {rev.name}
+                  </div>
+                  <div className="text-[11px] text-slate-400">
+                    {rev.role}
                   </div>
                 </div>
-              </Reveal>
+              </div>
             ))}
           </div>
-
         </div>
       </section>
     </>

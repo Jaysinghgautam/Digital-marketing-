@@ -1,129 +1,161 @@
-import { Palette, Globe, Camera, TrendingUp } from "lucide-react";
+import { Palette, Globe, Video, TrendingUp, CheckCircle, ArrowRight, Calendar, BarChart2 } from "lucide-react";
 import Reveal from "../Reveal";
+import { Link } from "react-router-dom";
 
-/**
- * VoopFramework Component
- * Explains the 4-step proprietary VOOP methodology:
- * V - Visual Identity
- * O - Online Presence
- * O - Outreach & Engagement
- * P - Performance & Profitability
- */
-const PILLARS = [
+const STEPS = [
   {
-    letter: "V",
-    title: "Visual Identity",
-    subtitle: "Brand & Creative",
-    desc: "Positioning, logo design, visual style guides, packaging, and high-end creative assets that make your brand memorable.",
+    num: "01",
+    title: "Plan",
+    desc: "Understand your goals and create a strategy.",
+    icon: Calendar,
+    iconBg: "#F0E9FF",
+    iconColor: "#7B2FF7",
+    numColor: "#7B2FF7",
+  },
+  {
+    num: "02",
+    title: "Create",
+    desc: "Design creatives and videos.",
     icon: Palette,
-    color: "from-purple-500 to-indigo-500",
-    badge: "Pillar 01",
+    iconBg: "#FFF4E9",
+    iconColor: "#FF6B35",
+    numColor: "#FF6B35",
   },
   {
-    letter: "O",
-    title: "Online Presence",
-    subtitle: "Digital Real Estate",
-    desc: "Fast, conversion-focused websites, technical SEO, and Google Business Profile domination to capture high-intent searches.",
+    num: "03",
+    title: "Approve",
+    desc: "You review and suggest changes.",
+    icon: CheckCircle,
+    iconBg: "#E9F8FF",
+    iconColor: "#0891B2",
+    numColor: "#0891B2",
+  },
+  {
+    num: "04",
+    title: "Publish",
+    desc: "We schedule and post automatically.",
     icon: Globe,
-    color: "from-cyan-500 to-blue-500",
-    badge: "Pillar 02",
+    iconBg: "#EDFDF8",
+    iconColor: "#059669",
+    numColor: "#059669",
   },
   {
-    letter: "O",
-    title: "Outreach & Content",
-    subtitle: "Attention & Trust",
-    desc: "Targeted social media reels, LinkedIn thought leadership, short-form video production, and community engagement.",
-    icon: Camera,
-    color: "from-pink-500 to-rose-500",
-    badge: "Pillar 03",
-  },
-  {
-    letter: "P",
-    title: "Performance & Profit",
-    subtitle: "Paid Acquisition & ROI",
-    desc: "Laser-focused Meta & Google Ad campaigns, retargeting funnels, and transparent real-time revenue analytics.",
-    icon: TrendingUp,
-    color: "from-emerald-500 to-teal-500",
-    badge: "Pillar 04",
+    num: "05",
+    title: "Report",
+    desc: "Get monthly performance reports.",
+    icon: BarChart2,
+    iconBg: "#FFF0F5",
+    iconColor: "#E11D74",
+    numColor: "#E11D74",
   },
 ];
 
 export default function VoopFramework() {
   return (
-    <section id="process" className="py-20 md:py-28 bg-[#070d18] text-white relative">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6">
-        
+    <section id="process" className="py-20 md:py-28 bg-gray-50 text-gray-900 relative overflow-hidden">
+
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
+
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center">
+        <div className="text-center mb-14">
           <Reveal variant="fade">
-            <span className="text-xs font-bold tracking-widest uppercase text-cyan-400 bg-cyan-400/10 px-3.5 py-1.5 rounded-full border border-cyan-400/20">
-              The VOOP Growth Operating System
+            <span className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full"
+              style={{
+                color: "#7B2FF7",
+                background: "rgba(123,47,247,0.08)",
+                border: "1px solid rgba(123,47,247,0.2)",
+              }}>
+              Our Process
             </span>
           </Reveal>
 
           <Reveal variant="up" delay={150}>
-            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
-              One Framework. Complete Predictability.
+            <h2 className="mt-4 text-3xl sm:text-5xl font-black tracking-tight leading-tight text-gray-900">
+              Simple Steps.{" "}
+              <span style={{
+                background: "linear-gradient(135deg, #7B2FF7, #FF6B35)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+              }}>
+                Powerful Results.
+              </span>
             </h2>
           </Reveal>
 
           <Reveal variant="up" delay={250}>
-            <p className="mt-4 text-slate-300 text-base sm:text-lg leading-relaxed">
-              Instead of randomly trying scattered marketing tactics, we run every SME
-              through our battle-tested 4-pillar system designed to scale your pipeline month over month.
+            <p className="mt-4 text-gray-500 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+              Our streamlined 5-step process ensures consistent quality, timely delivery, and measurable growth every month.
             </p>
           </Reveal>
         </div>
 
-        {/* 4 Pillars Grid */}
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {PILLARS.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <Reveal
-                key={item.title}
-                variant="up"
-                delay={index * 120}
-                className="group relative rounded-2xl border border-white/10 bg-[#0d1728]/70 hover:bg-[#111e35] p-7 transition-all duration-300 hover:-translate-y-2 hover:border-cyan-400/40 hover:shadow-xl hover:shadow-cyan-500/10 flex flex-col justify-between overflow-hidden"
-              >
-                {/* Large Background Letter Watermark */}
-                <div className="pointer-events-none absolute -right-2 -bottom-4 text-8xl font-black text-white/[0.03] group-hover:text-white/[0.07] transition-all select-none">
-                  {item.letter}
-                </div>
+        {/* Steps - Horizontal for desktop, vertical for mobile */}
+        <div className="relative">
+          {/* Connector line (desktop) */}
+          <div className="hidden lg:block absolute top-14 left-0 right-0 h-0.5 z-0"
+            style={{ background: "linear-gradient(90deg, transparent, #7B2FF7, #FF6B35, #7B2FF7, transparent)" }} />
 
-                <div>
-                  {/* Top Bar with Icon and Badge */}
-                  <div className="flex items-center justify-between">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white shadow-md`}>
-                      <Icon className="w-6 h-6" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 lg:gap-4 relative z-10">
+            {STEPS.map((step, index) => {
+              const Icon = step.icon;
+              return (
+                <Reveal key={step.num} variant="up" delay={index * 100}>
+                  <div className="flex flex-col items-center text-center group">
+                    {/* Icon circle */}
+                    <div
+                      className="w-16 h-16 rounded-2xl flex items-center justify-center mb-4 shadow-sm transition-transform group-hover:-translate-y-2 relative z-10"
+                      style={{ background: step.iconBg, border: `1.5px solid ${step.iconColor}25` }}
+                    >
+                      <Icon className="w-7 h-7" style={{ color: step.iconColor }} />
                     </div>
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 px-2 py-0.5 rounded border border-white/10 bg-white/[0.03]">
-                      {item.badge}
-                    </span>
+
+                    {/* Step number */}
+                    <div className="text-xs font-black mb-1" style={{ color: step.numColor }}>
+                      {step.num}
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-lg font-extrabold text-gray-900 mb-1 group-hover:text-purple-700 transition-colors">
+                      {step.title}
+                    </h3>
+
+                    {/* Desc */}
+                    <p className="text-xs text-gray-400 leading-relaxed max-w-[140px]">
+                      {step.desc}
+                    </p>
                   </div>
-
-                  {/* Title and Subtitle */}
-                  <h3 className="mt-6 text-xl font-bold text-white group-hover:text-cyan-300 transition-colors">
-                    {item.title}
-                  </h3>
-                  <div className="text-xs font-semibold text-cyan-400/90 mt-0.5">
-                    {item.subtitle}
-                  </div>
-
-                  {/* Description */}
-                  <p className="mt-3 text-sm text-slate-300 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
-
-                <div className="mt-6 pt-4 border-t border-white/5 flex items-center text-xs font-semibold text-slate-400 group-hover:text-cyan-300 transition-colors">
-                  <span>Pillar {item.letter} in action</span>
-                  <span className="ml-1 transition-transform group-hover:translate-x-1">→</span>
-                </div>
-              </Reveal>
-            );
-          })}
+                </Reveal>
+              );
+            })}
+          </div>
         </div>
+
+        {/* Bottom CTA */}
+        <Reveal variant="fade" delay={500}>
+          <div className="mt-14 p-7 rounded-3xl text-center"
+            style={{
+              background: "rgba(123,47,247,0.05)",
+              border: "1.5px solid rgba(123,47,247,0.15)",
+            }}>
+            <p className="text-sm font-bold text-gray-700 mb-4">
+              Ready to experience our seamless process?
+              <span className="ml-2" style={{ color: "#FF6B35" }}>
+                Get started today — first month at a special price!
+              </span>
+            </p>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl font-bold text-sm text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-lg"
+              style={{
+                background: "linear-gradient(135deg, #7B2FF7, #FF6B35)",
+                boxShadow: "0 4px 20px rgba(123,47,247,0.3)",
+              }}
+            >
+              <span>Start Your Journey</span>
+              <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </Reveal>
 
       </div>
     </section>

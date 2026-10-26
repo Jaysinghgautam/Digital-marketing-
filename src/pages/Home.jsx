@@ -23,7 +23,7 @@ import HomeCTA from "../components/Home/HomeCTA";
  */
 export default function Home() {
   return (
-    <div className="bg-[#070d18] text-white min-h-screen selection:bg-cyan-400 selection:text-[#070d18]">
+    <div className="bg-white text-gray-900 min-h-screen selection:bg-purple-200 selection:text-purple-900">
       {/* 1. Hero Section */}
       <Hero />
 

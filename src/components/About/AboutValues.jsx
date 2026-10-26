@@ -1,86 +1,99 @@
-import { Eye, TrendingUp, Sparkles, Heart, Award, Globe } from "lucide-react";
+import { Award, Eye, Zap, Handshake, TrendingUp, BookOpen, Sparkles } from "lucide-react";
 import Reveal from "../Reveal";
 
 const VALUES = [
-  { icon: Eye, title: "Radical Transparency", body: "Direct reporting, unfiltered feedback, and honest metrics. If a channel isn't producing ROI, we pivot immediately." },
-  { icon: TrendingUp, title: "Compounding Growth", body: "We focus on revenue, qualified pipelines, customer acquisition cost, and lifetime retention above all else." },
-  { icon: Sparkles, title: "Creative Distinction", body: "High-grade visual identity and persuasive copywriting that elevates you above look-alike competitors." },
-  { icon: Heart, title: "True Partnership", body: "We operate as an agile internal growth squad, holding ourselves fully accountable to your quarterly milestones." },
-  { icon: Award, title: "Operational Rigor", body: "Weekly sprint cadences, QA checks on tracking pixels, and daily campaign monitoring with zero guesswork." },
-  { icon: Globe, title: "Long-term Impact", body: "Sustainable SEO equity and brand authority that continue compounding value long after campaigns conclude." },
+  {
+    icon: Award,
+    title: "Craft Over Noise",
+    desc: "We only ship creative we are proud to put in our own portfolio. No generic template filler or useless vanity posts.",
+    color: "from-purple-500 to-indigo-600",
+  },
+  {
+    icon: Eye,
+    title: "Radical Transparency",
+    desc: "Clients see real numbers — qualified enquiries, cost per acquisition, and ROAS — never hidden agency markups or smoke screens.",
+    color: "from-cyan-500 to-blue-600",
+  },
+  {
+    icon: Zap,
+    title: "Speed With Discipline",
+    desc: "SOPs, documented checklists, and pre-scheduled editorial calendars ensure nothing ever slips through the cracks or depends on one person.",
+    color: "from-orange-500 to-pink-500",
+  },
+  {
+    icon: Handshake,
+    title: "Partner, Not Vendor",
+    desc: "We sit close enough to your business reality and P&L to say 'no' to bad marketing ideas and push for high-ROI strategies.",
+    color: "from-pink-500 to-rose-600",
+  },
+  {
+    icon: TrendingUp,
+    title: "Compounding Value",
+    desc: "Every asset — brand identity, video b-roll library, SEO keyword rankings — becomes more valuable over time, never reset each month.",
+    color: "from-emerald-500 to-teal-600",
+  },
+  {
+    icon: BookOpen,
+    title: "Continuous Learning",
+    desc: "Data-driven decisions and rapid AI tool adoption ensure your SME stays ahead of changing ad algorithms and buyer habits.",
+    color: "from-blue-500 to-indigo-600",
+  },
 ];
 
 export default function AboutValues() {
   return (
-    <section style={{ background: "#0b1728", padding: "96px 0", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
-        <Reveal variant="up">
-          <div style={{ textAlign: "center", maxWidth: "640px", margin: "0 auto 56px" }}>
-            <div className="section-badge" style={{ marginBottom: "1rem" }}>
-              Core Values
-            </div>
-            <h2 style={{ fontSize: "clamp(2rem,4vw,3rem)", fontWeight: 900, color: "#f1f5f9", letterSpacing: "-0.02em" }}>
-              Principles that guide <span className="grad-text">every sprint.</span>
-            </h2>
-            <p style={{ color: "#94a3b8", fontSize: "1rem", marginTop: "12px" }}>
-              Our work is anchored in integrity, measurable financial impact, and relentless execution standards.
-            </p>
-          </div>
-        </Reveal>
+    <section className="py-20 md:py-28 bg-[#050914] text-white relative border-t border-white/[0.08]">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
+        
+        {/* Header */}
+        <div className="max-w-3xl mx-auto text-center">
+          <Reveal variant="fade">
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-pink-400 to-cyan-400 bg-white/5 px-4 py-1.5 rounded-full border border-white/10 font-mono">
+              <Sparkles className="w-3.5 h-3.5 text-cyan-400" />
+              VOOPIFY Tenets
+            </span>
+          </Reveal>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(320px,1fr))", gap: "24px" }}>
-          {VALUES.map((v, i) => {
-            const Icon = v.icon;
+          <Reveal variant="up" delay={150}>
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+              Our Six Operating Principles
+            </h2>
+          </Reveal>
+
+          <Reveal variant="up" delay={250}>
+            <p className="mt-4 text-slate-300 text-base sm:text-lg leading-relaxed">
+              These principles guide how our pods work, how we communicate with founders, and how we measure success on every engagement.
+            </p>
+          </Reveal>
+        </div>
+
+        {/* 6 Values Grid */}
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {VALUES.map((val, idx) => {
+            const Icon = val.icon;
             return (
-              <Reveal key={v.title} variant="up" delay={i * 70}>
-                <div
-                  className="glass-card"
-                  style={{
-                    padding: "32px",
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    transition: "all 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-4px)";
-                    e.currentTarget.style.borderColor = "rgba(34,211,238,0.3)";
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-                  }}
-                >
-                  <div>
-                    <div
-                      style={{
-                        width: "48px",
-                        height: "48px",
-                        borderRadius: "12px",
-                        background: "rgba(34,211,238,0.1)",
-                        border: "1px solid rgba(34,211,238,0.2)",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        marginBottom: "20px",
-                        color: "#22d3ee",
-                      }}
-                    >
-                      <Icon size={22} />
-                    </div>
-                    <h3 style={{ fontSize: "1.2rem", fontWeight: 700, color: "#f1f5f9", marginBottom: "10px" }}>
-                      {v.title}
-                    </h3>
-                    <p style={{ fontSize: "0.9rem", color: "#94a3b8", lineHeight: 1.7, margin: 0 }}>
-                      {v.body}
-                    </p>
+              <Reveal
+                key={idx}
+                variant="up"
+                delay={idx * 100}
+                className="p-8 rounded-3xl bg-[#091122] border border-white/[0.08] hover:border-cyan-400/40 hover:bg-[#0c1830] transition-all duration-300 group flex flex-col justify-between"
+              >
+                <div>
+                  <div className={`w-12 h-12 rounded-2xl bg-gradient-to-br ${val.color} flex items-center justify-center text-white mb-6 shadow-lg group-hover:scale-110 transition-transform`}>
+                    <Icon className="w-6 h-6" />
                   </div>
+                  <h3 className="text-xl font-extrabold text-white group-hover:text-cyan-300 transition-colors">
+                    {val.title}
+                  </h3>
+                  <p className="mt-3 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                    {val.desc}
+                  </p>
                 </div>
               </Reveal>
             );
           })}
         </div>
+
       </div>
     </section>
   );

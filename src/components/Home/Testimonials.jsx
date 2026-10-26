@@ -1,112 +1,168 @@
-import { Star, Quote } from "lucide-react";
+import { Star, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import Reveal from "../Reveal";
+import { useState } from "react";
 
-/**
- * Testimonials Component
- * Shows real client reviews, verified satisfaction ratings, and case highlights.
- */
 const TESTIMONIALS_DATA = [
   {
     quote:
-      "Before Voopify, we were juggling four different freelancers who kept giving excuses. Voopify brought total order — our inbound B2B inquiries grew 3x in just 90 days.",
-    author: "Rajesh Sharma",
-    role: "Managing Director",
-    company: "Apex Precision Tools (B2B)",
+      "Voopify has transformed our social media completely. The designs, Reels and consistent posting have brought us amazing engagement and new customers.",
+    author: "Riya Sharma",
+    role: "Founder",
+    company: "The Organic Kitchen",
     rating: 5,
-    tag: "3x Inbound Inquiries",
+    avatar: "RS",
+    avatarColor: "from-purple-500 to-pink-500",
   },
   {
     quote:
-      "Their performance ad squad rebuilt our Meta and Google funnels completely. Our cost per acquisition dropped by 32%, and their weekly reporting is 100% honest and transparent.",
-    author: "Pooja Singhania",
+      "Professional, creative and result-oriented team. They manage everything so smoothly. Our brand visibility has grown massively.",
+    author: "Amit Verma",
+    role: "Founder",
+    company: "UrbanBite",
+    rating: 5,
+    avatar: "AV",
+    avatarColor: "from-orange-500 to-amber-400",
+  },
+  {
+    quote:
+      "Our Instagram engagement tripled within 60 days. The content quality and consistency is unmatched. Highly recommend VOOPIFY to every brand.",
+    author: "Priya Mehta",
     role: "Co-Founder",
-    company: "Ziva Pure Wellness (D2C)",
+    company: "Ziva Botanicals",
     rating: 5,
-    tag: "32% Lower CAC",
+    avatar: "PM",
+    avatarColor: "from-emerald-500 to-teal-400",
   },
   {
     quote:
-      "Our local clinic was barely visible on search engines. Their Google Business Profile and local SEO sprint doubled our daily appointments within two months.",
-    author: "Dr. Vikram Sethi",
-    role: "Founder & Lead Surgeon",
-    company: "Sethi Healthcare Clinics",
+      "From zero social media presence to a thriving community — VOOPIFY made it happen in just 3 months. Our sales from Instagram have doubled!",
+    author: "Rahul Goyal",
+    role: "Owner",
+    company: "NatureHarvest",
     rating: 5,
-    tag: "2x Patient Walk-ins",
+    avatar: "RG",
+    avatarColor: "from-cyan-500 to-blue-500",
   },
 ];
 
 export default function Testimonials() {
+  const [current, setCurrent] = useState(0);
+  const total = TESTIMONIALS_DATA.length;
+
+  const prev = () => setCurrent((c) => (c - 1 + total) % total);
+  const next = () => setCurrent((c) => (c + 1) % total);
+
+  // Show 2 at a time
+  const visible = [TESTIMONIALS_DATA[current], TESTIMONIALS_DATA[(current + 1) % total]];
+
   return (
-    <section className="py-20 md:py-28 bg-[#070d18] text-white relative">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6">
-        
-        {/* Header */}
-        <div className="max-w-3xl mx-auto text-center">
-          <Reveal variant="fade">
-            <span className="text-xs font-bold tracking-widest uppercase text-cyan-400 bg-cyan-400/10 px-3.5 py-1.5 rounded-full border border-cyan-400/20">
-              Client Testimonials
-            </span>
-          </Reveal>
+    <section className="py-20 md:py-28 text-white relative overflow-hidden"
+      style={{ background: "linear-gradient(135deg, #1a0533 0%, #2D1065 50%, #0f0a2e 100%)" }}>
 
-          <Reveal variant="up" delay={150}>
-            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
-              Trusted by Ambitious Business Owners
-            </h2>
-          </Reveal>
+      {/* Background glow orbs */}
+      <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full pointer-events-none opacity-20"
+        style={{ background: "radial-gradient(circle, #7B2FF7, transparent 70%)", filter: "blur(60px)" }} />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full pointer-events-none opacity-20"
+        style={{ background: "radial-gradient(circle, #FF6B35, transparent 70%)", filter: "blur(60px)" }} />
 
-          <Reveal variant="up" delay={250}>
-            <p className="mt-4 text-slate-300 text-base sm:text-lg">
-              Here is what founders and business leaders say about partnering with our
-              dedicated growth marketing team.
-            </p>
-          </Reveal>
-        </div>
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
+        <div className="grid lg:grid-cols-3 gap-10 items-center">
 
-        {/* Testimonials Grid */}
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {TESTIMONIALS_DATA.map((item, idx) => (
-            <Reveal
-              key={item.author}
-              variant="up"
-              delay={idx * 150}
-              className="rounded-2xl border border-white/10 bg-[#0d1627] hover:bg-[#111e33] p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:border-cyan-400/30 hover:-translate-y-1"
-            >
-              <div>
-                {/* Header: Stars & Metric Tag */}
-                <div className="flex items-center justify-between mb-5">
-                  <div className="flex text-amber-400">
-                    {[...Array(item.rating)].map((_, i) => (
+          {/* Left: Header */}
+          <div className="lg:col-span-1">
+            <Reveal variant="fade">
+              <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5"
+                style={{
+                  color: "#FF6B35",
+                  background: "rgba(255,107,53,0.15)",
+                  border: "1px solid rgba(255,107,53,0.3)",
+                }}>
+                <Sparkles className="w-3.5 h-3.5" />
+                Client Testimonials
+              </span>
+            </Reveal>
+
+            <Reveal variant="up" delay={100}>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
+                What Our{" "}
+                <span style={{
+                  background: "linear-gradient(135deg, #FF6B35, #FF8C42)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                }}>
+                  Clients
+                </span>{" "}
+                Say
+              </h2>
+            </Reveal>
+
+            <Reveal variant="up" delay={200}>
+              <p className="mt-4 text-purple-200 text-sm sm:text-base leading-relaxed">
+                Real results from real brands who trusted us with their social media growth.
+              </p>
+            </Reveal>
+
+            {/* Navigation arrows */}
+            <div className="mt-8 flex items-center gap-3">
+              <button
+                onClick={prev}
+                className="w-12 h-12 rounded-full border border-white/20 bg-white/10 text-white hover:bg-white/20 flex items-center justify-center transition-all duration-200 hover:-translate-x-0.5"
+                aria-label="Previous"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+              <button
+                onClick={next}
+                className="w-12 h-12 rounded-full border border-white/20 bg-white/10 text-white hover:bg-white/20 flex items-center justify-center transition-all duration-200 hover:translate-x-0.5"
+                aria-label="Next"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+              <span className="text-purple-300 text-sm font-medium ml-2">
+                {current + 1} / {total}
+              </span>
+            </div>
+          </div>
+
+          {/* Right: Testimonial Cards */}
+          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-5">
+            {visible.map((t, idx) => (
+              <Reveal key={`${current}-${idx}`} variant="up" delay={idx * 100}>
+                <div className="p-7 rounded-3xl flex flex-col justify-between h-full"
+                  style={{
+                    background: "rgba(255,255,255,0.07)",
+                    border: "1px solid rgba(255,255,255,0.12)",
+                    backdropFilter: "blur(16px)",
+                  }}>
+
+                  {/* Stars */}
+                  <div className="flex text-amber-400 gap-1 mb-4">
+                    {[...Array(t.rating)].map((_, i) => (
                       <Star key={i} className="w-4 h-4 fill-current" />
                     ))}
                   </div>
-                  <span className="text-[11px] font-bold text-cyan-300 bg-cyan-400/10 px-2.5 py-0.5 rounded-full border border-cyan-400/20">
-                    {item.tag}
-                  </span>
-                </div>
 
-                <Quote className="w-7 h-7 text-white/15 mb-3" />
-
-                <p className="text-sm sm:text-base text-slate-200 leading-relaxed italic">
-                  "{item.quote}"
-                </p>
-              </div>
-
-              {/* Author Info */}
-              <div className="mt-8 pt-5 border-t border-white/10 flex items-center gap-3.5">
-                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-cyan-400 to-blue-600 font-bold text-white flex items-center justify-center text-sm shadow-md">
-                  {item.author.charAt(0)}
-                </div>
-                <div>
-                  <h4 className="font-semibold text-white text-sm">{item.author}</h4>
-                  <p className="text-xs text-slate-400">
-                    {item.role} • {item.company}
+                  <p className="text-sm sm:text-base text-white/90 leading-relaxed italic flex-1">
+                    &ldquo;{t.quote}&rdquo;
                   </p>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
 
+                  <div className="mt-6 pt-5 border-t border-white/10 flex items-center gap-3">
+                    <div className={`w-11 h-11 rounded-full bg-gradient-to-br ${t.avatarColor} flex items-center justify-center font-bold text-white text-sm shadow-lg shrink-0`}>
+                      {t.avatar}
+                    </div>
+                    <div>
+                      <div className="font-extrabold text-white text-sm">{t.author}</div>
+                      <div className="text-xs text-purple-300">
+                        {t.role},{" "}
+                        <span className="text-purple-200 font-semibold">{t.company}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

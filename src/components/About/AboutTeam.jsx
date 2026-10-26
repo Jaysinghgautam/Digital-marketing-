@@ -1,88 +1,95 @@
-import { Linkedin, Twitter } from "lucide-react";
+import { Users, ShieldCheck, Target, Award, ArrowRight } from "lucide-react";
 import Reveal from "../Reveal";
+import { Link } from "react-router-dom";
 
-const LEADERS = [
-  { name: "Sarah Jenkins", role: "Founder & Chief Strategist", image: "https://randomuser.me/api/portraits/women/44.jpg", exp: "Ex-Google, 12y Growth" },
-  { name: "David Chen", role: "Head of Paid Acquisition", image: "https://randomuser.me/api/portraits/men/32.jpg", exp: "Managed ₹15Cr+ Ad Spend" },
-  { name: "Elena Bradley", role: "Director of Analytics & Data", image: "https://randomuser.me/api/portraits/women/65.jpg", exp: "Full-Funnel Attribution" },
-  { name: "Michael Carter", role: "Creative & Brand Director", image: "https://randomuser.me/api/portraits/men/46.jpg", exp: "Award-winning Campaigns" },
-  { name: "Sophia Williams", role: "Lead SEO Strategist", image: "https://randomuser.me/api/portraits/women/68.jpg", exp: "Ranked 200+ Keywords #1" },
-  { name: "James Anderson", role: "Conversion Rate Specialist", image: "https://randomuser.me/api/portraits/men/52.jpg", exp: "Avg. +48% CVR Lift" },
+const POD_ROLES = [
+  {
+    role: "Founder & Growth Leadership",
+    scope: "Brand Strategy & Key Accounts",
+    kpi: "Client LTV & Strategic Direction",
+    desc: "Translating corporate discipline and commercial focus into structured SME growth roadmaps.",
+    color: "from-purple-500 to-indigo-600",
+  },
+  {
+    role: "Dedicated Account Managers",
+    scope: "Day-to-day Partner & Briefs",
+    kpi: "Retention Rate (≥80%) & 48h Response SLA",
+    desc: "Single point of contact for the founder. Orchestrates all 4 practice deliverables seamlessly.",
+    color: "from-cyan-500 to-blue-600",
+  },
+  {
+    role: "Creative Leads & Art Directors",
+    scope: "Brand Identity, Packaging & Design",
+    kpi: "On-Time Delivery & Zero Brand Drift",
+    desc: "Guardian of visual taste and craft. Ensures every deliverable commands premium brand authority.",
+    color: "from-pink-500 to-rose-600",
+  },
+  {
+    role: "Performance Media Buyers",
+    scope: "Meta & Google Ad Optimization",
+    kpi: "Target CPL, ROAS & Pipeline Volume",
+    desc: "Rigorous daily campaign budget tuning, multivariate copy testing, and conversion attribution.",
+    color: "from-emerald-500 to-teal-600",
+  },
 ];
 
 export default function AboutTeam() {
   return (
-    <section style={{ background: "#070d18", padding: "96px 0", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
+    <section className="py-20 md:py-28 bg-[#070d18] text-white relative">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
         
-        <Reveal variant="up">
-          <div style={{ textAlign: "center", maxWidth: "600px", margin: "0 auto 56px" }}>
-            <div className="section-badge" style={{ marginBottom: "1rem" }}>
-              Leadership Squad
-            </div>
-            <h2 style={{ fontSize: "clamp(2rem,4vw,3rem)", fontWeight: 900, color: "#f1f5f9", letterSpacing: "-0.02em" }}>
-              The team driving your <span className="grad-text">results.</span>
+        {/* Header */}
+        <div className="max-w-3xl mx-auto text-center">
+          <Reveal variant="fade">
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase text-cyan-400 bg-cyan-400/10 px-4 py-1.5 rounded-full border border-cyan-400/20 font-mono">
+              <Users className="w-3.5 h-3.5" />
+              Organizational Delivery Pods
+            </span>
+          </Reveal>
+
+          <Reveal variant="up" delay={150}>
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+              A Cross-Functional Squad{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-pink-400 to-cyan-400">
+                Behind Every SME.
+              </span>
             </h2>
-            <p style={{ marginTop: "12px", color: "#94a3b8", fontSize: "1rem" }}>
-              Experienced practitioners obsessed with marketing craft, disciplined execution, and measurable growth.
+          </Reveal>
+
+          <Reveal variant="up" delay={250}>
+            <p className="mt-4 text-slate-300 text-base sm:text-lg leading-relaxed">
+              We operate in autonomous pods — each pod pairing senior strategy, creative craft, content production, and ad buying to deliver what would otherwise require five separate vendors.
             </p>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: "24px" }}>
-          {LEADERS.map((person, i) => (
-            <Reveal key={person.name} variant="up" delay={i * 80}>
-              <div
-                className="glass-card"
-                style={{
-                  overflow: "hidden",
-                  transition: "all 0.3s ease",
-                  borderRadius: "18px",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-6px)";
-                  e.currentTarget.style.borderColor = "rgba(34,211,238,0.3)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-                }}
-              >
-                <div style={{ height: "240px", overflow: "hidden", position: "relative" }}>
-                  <img
-                    src={person.image}
-                    alt={person.name}
-                    style={{ width: "100%", height: "100%", objectFit: "cover", transition: "transform 0.5s ease" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.transform = "scale(1.08)")}
-                    onMouseLeave={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                  />
-                  <div
-                    style={{
-                      position: "absolute",
-                      bottom: "10px",
-                      left: "10px",
-                      background: "rgba(7,13,24,0.85)",
-                      backdropFilter: "blur(8px)",
-                      padding: "4px 10px",
-                      borderRadius: "6px",
-                      fontSize: "0.75rem",
-                      color: "#22d3ee",
-                      fontWeight: 600,
-                      border: "1px solid rgba(34,211,238,0.2)",
-                    }}
-                  >
-                    {person.exp}
-                  </div>
+        {/* Roles Grid */}
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {POD_ROLES.map((member, idx) => (
+            <Reveal
+              key={idx}
+              variant="up"
+              delay={idx * 120}
+              className="p-6 rounded-3xl bg-[#091122] border border-white/[0.08] hover:border-cyan-400/40 transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div className={`w-10 h-10 rounded-xl bg-gradient-to-br ${member.color} flex items-center justify-center text-white mb-4 shadow-md`}>
+                  <Target className="w-5 h-5" />
                 </div>
+                <h3 className="text-lg font-extrabold text-white group-hover:text-cyan-300 transition-colors">
+                  {member.role}
+                </h3>
+                <div className="text-xs font-semibold text-cyan-400 mt-1">
+                  {member.scope}
+                </div>
+                <p className="mt-3 text-xs text-slate-400 leading-relaxed">
+                  {member.desc}
+                </p>
+              </div>
 
-                <div style={{ padding: "20px" }}>
-                  <h3 style={{ fontWeight: 700, color: "#f1f5f9", fontSize: "1.1rem", margin: 0 }}>
-                    {person.name}
-                  </h3>
-                  <p style={{ marginTop: "4px", fontSize: "0.85rem", color: "#64748b", margin: "4px 0 0" }}>
-                    {person.role}
-                  </p>
-                </div>
+              <div className="mt-6 pt-4 border-t border-white/[0.06] text-[11px] font-mono text-slate-300">
+                <span className="text-slate-500 block text-[10px] uppercase font-bold">Core KPI:</span>
+                <span className="text-emerald-400">{member.kpi}</span>
               </div>
             </Reveal>
           ))}

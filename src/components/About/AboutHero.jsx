@@ -1,93 +1,104 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Target, Compass, Award } from "lucide-react";
 import Reveal from "../Reveal";
 
-const STATS = [
-  ["10+", "Years Experience"],
-  ["150+", "Projects Delivered"],
-  ["3.2x", "Average ROAS"],
-  ["92%", "Client Retention"],
+const MILESTONES = [
+  ["63M+", "Indian MSMEs"],
+  ["1,000", "3-Yr Client Goal"],
+  ["5,000+", "Vision 2035 Target"],
+  ["25+ Cities", "Commercial Hubs"],
 ];
 
 export default function AboutHero() {
   return (
-    <>
-      {/* ── Hero Banner ── */}
-      <section style={{ background: "#070d18", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "-120px", right: "-120px", width: "500px", height: "500px", borderRadius: "50%", background: "rgba(34,211,238,0.07)", filter: "blur(100px)" }} />
-        <div style={{ position: "absolute", bottom: "-80px", left: "-80px", width: "400px", height: "400px", borderRadius: "50%", background: "rgba(96,165,250,0.05)", filter: "blur(80px)" }} />
+    <section className="bg-[#050914] text-white relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-28 border-b border-white/[0.08]">
+      {/* Background glow */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-purple-600/15 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-cyan-600/15 rounded-full blur-[130px] pointer-events-none" />
 
-        <div style={{ position: "relative", maxWidth: "1280px", margin: "0 auto", padding: "96px 24px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center" }} className="about-hero-grid">
-          <div>
-            <Reveal variant="up">
-              <div className="section-badge" style={{ marginBottom: "1.25rem" }}>
-                <Sparkles size={13} />
-                About Ascend Digital
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div className="lg:col-span-7 space-y-6">
+            <Reveal variant="fade">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-400/25 bg-cyan-400/10 text-cyan-300 text-xs font-bold uppercase tracking-wider">
+                <Compass className="w-3.5 h-3.5 text-cyan-400" />
+                <span>Strategic Blueprint v1.0 • Vision &amp; Thesis</span>
               </div>
             </Reveal>
+
             <Reveal variant="up" delay={100}>
-              <h1 style={{ fontSize: "clamp(2.5rem,5vw,4rem)", fontWeight: 900, lineHeight: 1.08, letterSpacing: "-0.03em", color: "#f1f5f9", margin: "0 0 1.25rem" }}>
-                We turn ambitious<br />
-                <span className="grad-text">brands into growth stories.</span>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+                Democratizing Agency Craft for{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-orange-400 via-pink-400 to-cyan-400">
+                  India&apos;s Ambitious SMEs.
+                </span>
               </h1>
             </Reveal>
+
             <Reveal variant="up" delay={200}>
-              <p style={{ fontSize: "1.1rem", color: "#94a3b8", lineHeight: 1.75, maxWidth: "480px", marginBottom: "2rem" }}>
-                We're a performance-focused digital marketing team combining strategy, creativity, technology, and analytics to build marketing engines that actually move businesses forward.
+              <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+                The name VOOPIFY signals two words: <strong>“Voice”</strong> and <strong>“Amplify.”</strong> Every SME already has a voice — a real product, a real craft, and loyal customers. Our job is to amplify that voice across modern search, social, and performance channels with agency-grade discipline.
               </p>
             </Reveal>
+
             <Reveal variant="up" delay={300}>
-              <Link to="/contact" className="btn-primary">
-                Start a Conversation <ArrowRight size={18} />
-              </Link>
+              <div className="flex flex-wrap gap-4 pt-2">
+                <Link
+                  to="/contact"
+                  className="px-8 py-4 rounded-xl font-black text-sm text-slate-950 bg-gradient-to-r from-orange-400 via-pink-400 to-cyan-400 hover:opacity-95 shadow-xl shadow-cyan-500/20 transition-all hover:scale-[1.02] flex items-center gap-2"
+                >
+                  <span>Partner With VOOPIFY</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+
+                <a
+                  href="#founder-story"
+                  className="px-7 py-4 rounded-xl font-bold text-sm text-white bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 hover:border-cyan-400/40 backdrop-blur-md transition-all"
+                >
+                  Read Founder Thesis
+                </a>
+              </div>
             </Reveal>
           </div>
 
-          <Reveal variant="scale" delay={150}>
-            <div style={{ position: "relative" }}>
-              <img
-                src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85"
-                alt="Our team at work"
-                style={{ width: "100%", aspectRatio: "4/3", objectFit: "cover", borderRadius: "20px", border: "1px solid rgba(255,255,255,0.08)" }}
-              />
-              <div style={{
-                position: "absolute", bottom: "-20px", left: "-20px",
-                background: "linear-gradient(135deg,#22d3ee,#2dd4bf)",
-                color: "#070d18", borderRadius: "14px", padding: "16px 20px",
-                boxShadow: "0 16px 48px rgba(34,211,238,0.3)",
-              }}>
-                <p style={{ fontSize: "2rem", fontWeight: 900, margin: 0, lineHeight: 1 }}>10+</p>
-                <p style={{ fontSize: "0.8rem", fontWeight: 600, margin: 0, marginTop: "2px" }}>Years of Experience</p>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
+          {/* Right Image / Badge card */}
+          <div className="lg:col-span-5">
+            <Reveal variant="scale" delay={200}>
+              <div className="relative rounded-3xl overflow-hidden border border-white/10 shadow-2xl p-1 bg-gradient-to-br from-purple-500/30 via-pink-500/20 to-cyan-500/30">
+                <div className="p-6 sm:p-8 rounded-[22px] bg-[#091122] space-y-6">
+                  <div className="flex items-center justify-between pb-4 border-b border-white/10">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                      Brand Philosophy
+                    </span>
+                    <span className="text-xs font-bold text-cyan-400">
+                      “Your Growth. Our Business.”
+                    </span>
+                  </div>
 
-      {/* ── Stats Bar ── */}
-      <section style={{ background: "#0b1728" }}>
-        <div className="section-glow-divider" />
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "64px 24px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "32px" }} className="stats-grid">
-            {STATS.map(([val, label], i) => (
-              <Reveal key={label} variant="up" delay={i * 80}>
-                <div style={{ textAlign: "center" }}>
-                  <div className="stat-number">{val}</div>
-                  <p style={{ marginTop: "8px", fontSize: "0.875rem", color: "#64748b" }}>{label}</p>
+                  <p className="text-sm text-slate-300 leading-relaxed italic">
+                    “We kept meeting brilliant Indian manufacturers, clinics, and consumer brand owners with real products who looked invisible next to competitors with half their quality and twice their marketing budget. We built VOOPIFY to fix that permanently.”
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-4 pt-2">
+                    {MILESTONES.map(([num, lbl], i) => (
+                      <div key={i} className="p-3.5 rounded-xl bg-white/[0.03] border border-white/[0.06]">
+                        <div className="text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-pink-400 to-cyan-400">
+                          {num}
+                        </div>
+                        <div className="mt-0.5 text-xs text-slate-400 font-medium">
+                          {lbl}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </Reveal>
-            ))}
+              </div>
+            </Reveal>
           </div>
-        </div>
-        <div className="section-glow-divider" />
-      </section>
 
-      <style>{`
-        @media (max-width: 768px) {
-          .about-hero-grid { grid-template-columns: 1fr !important; }
-          .stats-grid { grid-template-columns: repeat(2,1fr) !important; }
-        }
-      `}</style>
-    </>
+        </div>
+      </div>
+    </section>
   );
 }

@@ -1,156 +1,182 @@
-import { ShieldCheck, Zap, Star, CheckCircle, XCircle } from "lucide-react";
+import { Check, X, ShieldCheck, Zap, Users, Sparkles, Award } from "lucide-react";
 import Reveal from "../Reveal";
+import { Link } from "react-router-dom";
 
-/**
- * WhyUs Component
- * Compares the Voopify model vs Hiring Freelancers vs Big Traditional Agencies,
- * showing why our dedicated SME retainer is the superior choice.
- */
-const ADVANTAGES = [
+const COMPARISON_ROWS = [
   {
-    icon: ShieldCheck,
-    title: "Radical Transparency",
-    desc: "We report actual qualified leads, acquisition costs, and revenue impact — never vanity metrics like empty impressions.",
+    feature: "Monthly Retainer Pricing",
+    voopify: "₹18,000 – ₹60,000 (Tiered for SMEs)",
+    bigAgency: "₹2,00,000 – ₹5,00,000+ Minimum",
+    freelancers: "Unpredictable hourly billing",
+    inHouse: "₹1,50,000+ (Salaries + tools + PF)",
   },
   {
-    icon: Zap,
-    title: "SOP-Driven Consistency",
-    desc: "No missed deadlines. Every calendar, creative shoot, ad variation, and sprint is executed on a rigid weekly cadence.",
+    feature: "Core Team & Capabilities",
+    voopify: "4 Practices: Brand, Web, Video, Ads",
+    bigAgency: "Junior account team on small accounts",
+    freelancers: "Fragmented (Need 4-5 vendors)",
+    inHouse: "1–2 generalists lacking specialization",
   },
   {
-    icon: Star,
-    title: "Growth Partner Mentality",
-    desc: "We don't just blindly execute tasks; we challenge assumptions, test offers, and optimize your unit economics.",
+    feature: "Quality & Brand Consistency",
+    voopify: "Strict 3-Stage SOP Approval Gates",
+    bigAgency: "Slow turnaround, template decks",
+    freelancers: "High turnover & inconsistent quality",
+    inHouse: "Depends on 1 person's bandwidth",
+  },
+  {
+    feature: "Commercial Accountability",
+    voopify: "Real Enquiries, CPL & ROAS Dashboards",
+    bigAgency: "Focuses on awards & vanity reach",
+    freelancers: "Zero strategic accountability",
+    inHouse: "Difficult to measure true attribution",
+  },
+  {
+    feature: "Turnaround Time (SLA)",
+    voopify: "48-Hour Default Delivery Window",
+    bigAgency: "2–3 weeks of bureaucratic delay",
+    freelancers: "Missed deadlines & ghosting risk",
+    inHouse: "Limited by daily operational fires",
   },
 ];
 
-const COMPARISON = [
+const ADVANTAGES = [
   {
-    feature: "Accountability & Speed",
-    freelancer: "Unpredictable & ghosting risk",
-    agency: "Slow bureaucratic approvals",
-    voopify: "Dedicated pod & fast 24h turnaround",
+    icon: ShieldCheck,
+    title: "SOP-Driven Consistency",
+    desc: "Every workflow — onboarding, content creation, ad setups, and reporting — is governed by checklists. Your brand never suffers when someone takes leave.",
   },
   {
-    feature: "Cost & Billing",
-    freelancer: "Hourly billing shocks",
-    agency: "High ₹2L+ retainers",
-    voopify: "Predictable flat monthly fee",
+    icon: Zap,
+    title: "AI Production Velocity",
+    desc: "We compress drafting costs by 40–60% with generative AI, allowing our creative directors to spend time on strategy, taste, and high-impact campaigns.",
   },
   {
-    feature: "Skill Coverage",
-    freelancer: "Single domain only",
-    agency: "Junior staff handling accounts",
-    voopify: "Senior specialists in all 4 pillars",
+    icon: Award,
+    title: "Commercial Outcomes Over Noise",
+    desc: "We don't sell pretty filler graphics. We connect every campaign directly to enquiries, leads, appointments, customer trust, and EBITDA growth.",
   },
   {
-    feature: "Reporting Focus",
-    freelancer: "Rarely any reports",
-    agency: "Confusing vanity charts",
-    voopify: "Live dashboard tracking pipeline & ROI",
+    icon: Users,
+    title: "Single Accountable Partner",
+    desc: "One dedicated Account Manager orchestrating creative directors, copywriters, video editors, and media buyers as your outsourced CMO department.",
   },
 ];
 
 export default function WhyUs() {
   return (
-    <section id="why-us" className="py-20 md:py-28 bg-[#070d18] text-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6">
+    <section className="py-20 md:py-28 bg-white text-gray-900 relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
         
-        {/* Header */}
+        {/* Section Header */}
         <div className="max-w-3xl mx-auto text-center">
           <Reveal variant="fade">
-            <span className="text-xs font-bold tracking-widest uppercase text-cyan-400 bg-cyan-400/10 px-3.5 py-1.5 rounded-full border border-cyan-400/20">
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full"
+              style={{ color: '#7B2FF7', background: 'rgba(123,47,247,0.08)', border: '1px solid rgba(123,47,247,0.2)' }}>
+              <Sparkles className="w-3.5 h-3.5" style={{ color: '#7B2FF7' }} />
               Why Choose Us
             </span>
           </Reveal>
 
           <Reveal variant="up" delay={150}>
-            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight">
-              Built for SME Budgets. Run with Agency Discipline.
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-gray-900">
+              Why Growing Brands{" "}
+              <span style={{ background: 'linear-gradient(135deg,#7B2FF7,#FF6B35)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                Choose VOOPIFY.
+              </span>
             </h2>
           </Reveal>
 
           <Reveal variant="up" delay={250}>
-            <p className="mt-4 text-slate-300 text-base sm:text-lg">
-              Big agencies charge enterprise prices and hand your account to interns.
-              Freelancers are cheap but lack consistency. Voopify is the sweet spot:
-              elite agency execution at SME-friendly retainer rates.
+            <p className="mt-4 text-gray-500 text-base sm:text-lg leading-relaxed">
+              One subscription. Everything your brand needs — from content creation to performance reporting. No juggling vendors. No guessing.
             </p>
           </Reveal>
         </div>
 
-        {/* 3 Advantage Cards */}
-        <div className="mt-14 grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* 4 Core Pillars Grid */}
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {ADVANTAGES.map((adv, idx) => {
             const Icon = adv.icon;
+            const colors = [
+              { bg: '#F0E9FF', color: '#7B2FF7' },
+              { bg: '#FFF4E9', color: '#FF6B35' },
+              { bg: '#E9FDF4', color: '#059669' },
+              { bg: '#FFF0F5', color: '#E11D74' },
+            ];
+            const c = colors[idx % colors.length];
             return (
               <Reveal
-                key={adv.title}
+                key={idx}
                 variant="up"
-                delay={idx * 150}
-                className="rounded-2xl border border-white/10 bg-[#0d1627] p-7 transition-all hover:border-cyan-400/30 hover:bg-[#101b30]"
+                delay={idx * 100}
+                className="p-6 rounded-3xl bg-white border border-gray-100 hover:border-purple-200 hover:shadow-xl hover:shadow-purple-50 transition-all duration-300 group flex flex-col justify-between"
               >
-                <div className="w-12 h-12 rounded-xl bg-cyan-400/10 text-cyan-400 flex items-center justify-center mb-5">
-                  <Icon className="w-6 h-6" />
+                <div>
+                  <div className="w-12 h-12 rounded-2xl flex items-center justify-center mb-5 group-hover:-translate-y-1 transition-transform"
+                    style={{ background: c.bg }}>
+                    <Icon className="w-6 h-6" style={{ color: c.color }} />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 group-hover:text-purple-700 transition-colors">
+                    {adv.title}
+                  </h3>
+                  <p className="mt-2 text-xs sm:text-sm text-gray-400 leading-relaxed">
+                    {adv.desc}
+                  </p>
                 </div>
-                <h3 className="text-xl font-bold text-white mb-2">{adv.title}</h3>
-                <p className="text-sm text-slate-300 leading-relaxed">{adv.desc}</p>
               </Reveal>
             );
           })}
         </div>
 
-        {/* Comparison Table / Matrix */}
-        <Reveal variant="up" delay={300} className="mt-16">
-          <div className="rounded-2xl border border-white/10 bg-[#0b1424] overflow-hidden shadow-xl">
-            <div className="p-6 sm:p-8 border-b border-white/10">
-              <h3 className="text-xl font-bold text-white">How Voopify Compares</h3>
-              <p className="text-sm text-slate-400 mt-1">
-                See why businesses prefer our all-in-one monthly subscription.
-              </p>
-            </div>
-
-            <div className="overflow-x-auto">
-              <table className="w-full text-left text-sm">
+        {/* Comparison Table */}
+        <div className="mt-16">
+          <Reveal variant="up" delay={300}>
+            <div className="overflow-x-auto rounded-3xl border border-gray-100 bg-white shadow-xl shadow-purple-50">
+              <table className="w-full text-left border-collapse min-w-[700px]">
                 <thead>
-                  <tr className="border-b border-white/10 bg-white/[0.02] text-xs font-semibold uppercase tracking-wider text-slate-400">
-                    <th className="py-4 px-6">Criteria</th>
-                    <th className="py-4 px-6 text-slate-400">Freelancers</th>
-                    <th className="py-4 px-6 text-slate-400">Traditional Agency</th>
-                    <th className="py-4 px-6 text-cyan-400 bg-cyan-400/10">Voopify Partner</th>
+                  <tr className="border-b border-gray-100 bg-gray-50">
+                    <th className="p-5 text-xs font-bold uppercase tracking-wider text-gray-400">
+                      Criteria
+                    </th>
+                    <th className="p-5 text-sm font-extrabold border-x"
+                      style={{ color: '#7B2FF7', background: 'rgba(123,47,247,0.06)', borderColor: 'rgba(123,47,247,0.15)' }}>
+                      VOOPIFY Partner
+                    </th>
+                    <th className="p-5 text-xs font-bold uppercase tracking-wider text-gray-400">
+                      Big Agency
+                    </th>
+                    <th className="p-5 text-xs font-bold uppercase tracking-wider text-gray-400">
+                      Freelancers
+                    </th>
+                    <th className="p-5 text-xs font-bold uppercase tracking-wider text-gray-400">
+                      In-House
+                    </th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5 text-slate-300">
-                  {COMPARISON.map((row, i) => (
-                    <tr key={i} className="hover:bg-white/[0.02] transition-colors">
-                      <td className="py-4 px-6 font-semibold text-white whitespace-nowrap">
+                <tbody className="divide-y divide-gray-50 text-xs sm:text-sm">
+                  {COMPARISON_ROWS.map((row, rIdx) => (
+                    <tr key={rIdx} className="hover:bg-purple-50/30 transition-colors">
+                      <td className="p-5 font-bold text-gray-800">
                         {row.feature}
                       </td>
-                      <td className="py-4 px-6 text-slate-400">
-                        <div className="flex items-center gap-1.5">
-                          <XCircle className="w-4 h-4 text-red-400/70 shrink-0" />
-                          <span>{row.freelancer}</span>
-                        </div>
-                      </td>
-                      <td className="py-4 px-6 text-slate-400">
-                        <div className="flex items-center gap-1.5">
-                          <XCircle className="w-4 h-4 text-amber-400/70 shrink-0" />
-                          <span>{row.agency}</span>
-                        </div>
-                      </td>
-                      <td className="py-4 px-6 font-medium text-cyan-300 bg-cyan-400/[0.04]">
-                        <div className="flex items-center gap-1.5">
-                          <CheckCircle className="w-4 h-4 text-cyan-400 shrink-0" />
+                      <td className="p-5 font-bold border-x"
+                        style={{ color: '#7B2FF7', background: 'rgba(123,47,247,0.04)', borderColor: 'rgba(123,47,247,0.1)' }}>
+                        <div className="flex items-center gap-2">
+                          <Check className="w-4 h-4 shrink-0" style={{ color: '#059669' }} />
                           <span>{row.voopify}</span>
                         </div>
                       </td>
+                      <td className="p-5 text-gray-400">{row.bigAgency}</td>
+                      <td className="p-5 text-gray-400">{row.freelancers}</td>
+                      <td className="p-5 text-gray-400">{row.inHouse}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
 
       </div>
     </section>

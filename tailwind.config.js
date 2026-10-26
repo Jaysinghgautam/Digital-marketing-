@@ -4,24 +4,60 @@ export default {
   theme: {
     extend: {
       colors: {
-        navy: {
-          DEFAULT: "#0B1120",
-          light: "#131B36",
-          border: "#1E2A4A",
+        brand: {
+          purple:     "#7B2FF7",
+          purpleDark: "#5B17D4",
+          purpleLight:"#F0E9FF",
+          orange:     "#FF6B35",
+          orangeLight:"#FFF3EE",
+          navy:       "#1a0533",
+          dark:       "#1a1a2e",
         },
-        accent: {
-          DEFAULT: "#22D3EE",
-          dark: "#0891B2",
+        purple: {
+          DEFAULT: "#7B2FF7",
+          dark:    "#5B17D4",
+          light:   "#F0E9FF",
+          50:      "#F5F0FF",
+          100:     "#EDE0FF",
+          200:     "#D4BAFF",
+          300:     "#B990FF",
+          400:     "#9B65FF",
+          500:     "#7B2FF7",
+          600:     "#5B17D4",
+          700:     "#4510A6",
+          800:     "#2F0B77",
+          900:     "#1A0547",
         },
-        surface: "#F6F7FA",
+        orange: {
+          DEFAULT: "#FF6B35",
+          light:   "#FFF3EE",
+          dark:    "#E04E15",
+        },
       },
       fontFamily: {
         sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
       },
-      boxShadow: {
-        card: "0 1px 2px rgba(16, 24, 40, 0.06), 0 1px 3px rgba(16, 24, 40, 0.08)",
+      animation: {
+        "gradient-x": "gradientX 8s ease infinite",
+        "float-slow": "floatSlow 6s ease-in-out infinite",
+        "pulse-glow": "pulseGlow 4s ease-in-out infinite",
+      },
+      keyframes: {
+        gradientX: {
+          "0%, 100%": { "background-size": "200% 200%", "background-position": "left center" },
+          "50%": { "background-size": "200% 200%", "background-position": "right center" },
+        },
+        floatSlow: {
+          "0%, 100%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-10px)" },
+        },
+        pulseGlow: {
+          "0%, 100%": { opacity: "0.4", transform: "scale(1)" },
+          "50%": { opacity: "0.8", transform: "scale(1.05)" },
+        },
       },
     },
   },
   plugins: [],
 };
+

@@ -1,95 +1,136 @@
+import { Clock, ShieldCheck, CheckCircle2, ArrowRight, Zap, Target } from "lucide-react";
 import Reveal from "../Reveal";
+import { Link } from "react-router-dom";
 
-const PROCESS = [
-  { num: "01", title: "Diagnostic Audit", body: "We rigorously evaluate your existing marketing stack, competitor positioning, funnel leakages, and high-margin conversion opportunities." },
-  { num: "02", title: "Strategic Architecture", body: "We engineer a clear 90-day growth roadmap, assembling the creative assets, ad funnels, tracking pixels, and landing pages needed for scale." },
-  { num: "03", title: "Agile Optimization", body: "We relentlessly analyze live performance, A/B test ad hooks and design creatives, optimizing CAC and improving lead-to-close velocity." },
-  { num: "04", title: "Compound Scaling", body: "Once cost per acquisition is proven, we systematically expand budget allocation, opening secondary channels to dominate your market." },
+const ONBOARDING_STEPS = [
+  {
+    day: "Day 0 – 2",
+    title: "Kickoff & Brand Intake",
+    desc: "Signed agreement, kickoff onboarding call, and our structured SME brand/business questionnaire.",
+    badge: "Stage 01",
+  },
+  {
+    day: "Day 3 – 7",
+    title: "Audit & Architecture Setup",
+    desc: "Deep-dive brand & competitor audit, ad account access, analytics tracking, and tool stack setup.",
+    badge: "Stage 02",
+  },
+  {
+    day: "Day 8 – 14",
+    title: "Calendar & Strategy Sign-Off",
+    desc: "First month's editorial calendar, creative concepts, and paid ad strategy presented for approval.",
+    badge: "Stage 03",
+  },
+  {
+    day: "Day 15 Onwards",
+    title: "Live Sprints & Weekly ROI",
+    desc: "All campaigns go live. Weekly executive reporting cadence starts with 48-hour revision SLAs.",
+    badge: "Stage 04",
+  },
+];
+
+const APPROVAL_GATES = [
+  {
+    role: "Gate 1: Creative Lead",
+    desc: "Rigorous quality check against brand guidelines, typography, color harmony, and visual craft.",
+  },
+  {
+    role: "Gate 2: Account Manager",
+    desc: "Strategic review for commercial accuracy, CTA clarity, client tone-of-voice, and business intent.",
+  },
+  {
+    role: "Gate 3: Client Approval",
+    desc: "Transparent preview in shared workspace with a 48-hour review window and max 2 revision rounds.",
+  },
 ];
 
 export default function ServicesProcess() {
   return (
-    <section style={{ background: "#070d18", padding: "96px 0", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
+    <section className="py-20 md:py-28 bg-[#050914] text-white relative border-t border-white/[0.08] overflow-hidden">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
         
-        <Reveal>
-          <div style={{ maxWidth: "560px", marginBottom: "56px" }}>
-            <div className="section-badge" style={{ marginBottom: "1rem" }}>
-              How We Execute
-            </div>
-            <h2 style={{ fontSize: "clamp(2rem,4vw,3.2rem)", fontWeight: 900, color: "#f1f5f9", letterSpacing: "-0.02em", lineHeight: 1.15 }}>
-              From initial insight <br />
-              <span className="grad-text">to compounding scale.</span>
+        {/* Section Header */}
+        <div className="max-w-3xl mx-auto text-center">
+          <Reveal variant="fade">
+            <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase text-cyan-400 bg-cyan-400/10 px-4 py-1.5 rounded-full border border-cyan-400/20 font-mono">
+              <Clock className="w-3.5 h-3.5" />
+              SOP-Driven Onboarding
+            </span>
+          </Reveal>
+
+          <Reveal variant="up" delay={150}>
+            <h2 className="mt-4 text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight">
+              From Agreement to Live Campaigns{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-pink-400 to-cyan-400">
+                in Exactly 15 Days.
+              </span>
             </h2>
-            <p style={{ marginTop: "14px", color: "#94a3b8", fontSize: "1rem" }}>
-              Our battle-tested operational rhythm eliminates unpredictability and guarantees measurable milestones.
+          </Reveal>
+
+          <Reveal variant="up" delay={250}>
+            <p className="mt-4 text-slate-300 text-base sm:text-lg leading-relaxed">
+              No endless delays or disorganized handoffs. We run every new client through a standardized, checklist-driven onboarding procedure.
             </p>
-          </div>
-        </Reveal>
+          </Reveal>
+        </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(240px,1fr))", gap: "24px" }}>
-          {PROCESS.map(({ num, title, body }, i) => (
-            <Reveal key={num} variant="up" delay={i * 90}>
-              <div
-                className="glass-card"
-                style={{
-                  padding: "32px 28px",
-                  position: "relative",
-                  overflow: "hidden",
-                  height: "100%",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
-                  transition: "all 0.3s ease",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "translateY(-6px)";
-                  e.currentTarget.style.borderColor = "rgba(34,211,238,0.3)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "translateY(0)";
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-                }}
-              >
-                <div
-                  style={{
-                    position: "absolute",
-                    top: "-15px",
-                    right: "-5px",
-                    fontSize: "5.5rem",
-                    fontWeight: 900,
-                    color: "rgba(34,211,238,0.04)",
-                    lineHeight: 1,
-                    userSelect: "none",
-                  }}
-                >
-                  {num}
-                </div>
-
-                <div>
-                  <span style={{ fontSize: "0.85rem", fontWeight: 800, color: "#22d3ee", padding: "4px 10px", borderRadius: "6px", background: "rgba(34,211,238,0.1)" }}>
-                    Phase {num}
+        {/* 15-Day Onboarding Timeline */}
+        <div className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {ONBOARDING_STEPS.map((step, idx) => (
+            <Reveal
+              key={idx}
+              variant="up"
+              delay={idx * 120}
+              className="p-6 rounded-3xl bg-[#091122] border border-white/[0.08] hover:border-cyan-400/40 transition-all flex flex-col justify-between group"
+            >
+              <div>
+                <div className="flex items-center justify-between mb-4">
+                  <span className="text-xs font-mono font-bold text-cyan-400 px-2.5 py-1 rounded bg-cyan-400/10 border border-cyan-400/20">
+                    {step.day}
                   </span>
-                  <h3 style={{ fontSize: "1.25rem", fontWeight: 800, color: "#f1f5f9", margin: "24px 0 12px" }}>
-                    {title}
-                  </h3>
-                  <p style={{ fontSize: "0.9rem", color: "#94a3b8", lineHeight: 1.75, margin: 0 }}>
-                    {body}
-                  </p>
+                  <span className="text-[10px] font-mono uppercase text-slate-400">
+                    {step.badge}
+                  </span>
                 </div>
+                <h3 className="text-lg font-extrabold text-white group-hover:text-cyan-300 transition-colors">
+                  {step.title}
+                </h3>
+                <p className="mt-2 text-xs sm:text-sm text-slate-400 leading-relaxed">
+                  {step.desc}
+                </p>
+              </div>
 
-                <div
-                  style={{
-                    marginTop: "24px",
-                    height: "3px",
-                    width: "36px",
-                    background: "linear-gradient(90deg, #22d3ee, #2dd4bf)",
-                    borderRadius: "2px",
-                  }}
-                />
+              <div className="mt-6 pt-4 border-t border-white/[0.06] flex items-center gap-2 text-xs text-emerald-400 font-semibold">
+                <CheckCircle2 className="w-4 h-4 shrink-0" />
+                <span>Documented SOP Checklist</span>
               </div>
             </Reveal>
           ))}
+        </div>
+
+        {/* 3-Stage Approval Gates Strip */}
+        <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-purple-950/20 via-pink-950/20 to-cyan-950/20 border border-white/10">
+          <div className="max-w-2xl mx-auto text-center mb-8">
+            <h3 className="text-xl sm:text-2xl font-black text-white">
+              The 3-Stage Quality Gate
+            </h3>
+            <p className="mt-1 text-xs sm:text-sm text-slate-400">
+              Nothing goes live to your customers without passing through our multi-tier review process.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {APPROVAL_GATES.map((gate, gIdx) => (
+              <div key={gIdx} className="p-5 rounded-2xl bg-white/[0.03] border border-white/[0.07]">
+                <div className="text-sm font-bold text-cyan-300 mb-1">
+                  {gate.role}
+                </div>
+                <p className="text-xs text-slate-300 leading-relaxed">
+                  {gate.desc}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>

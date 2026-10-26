@@ -1,167 +1,243 @@
-import { Search, Share2, MousePointerClick, PenSquare, Layout, LineChart, ArrowRight, CheckCircle2 } from "lucide-react";
+import { useState } from "react";
+import {
+  Palette,
+  Globe,
+  Video,
+  TrendingUp,
+  Package,
+  Layers,
+  Search,
+  MapPin,
+  Camera,
+  Share2,
+  Cpu,
+  ArrowRight,
+  CheckCircle2,
+  Sparkles,
+} from "lucide-react";
 import Reveal from "../Reveal";
 import { Link } from "react-router-dom";
 
-const SERVICES = [
+const PRACTICES = [
   {
-    icon: Search,
-    number: "01",
-    title: "SEO & Search Dominance",
-    subtitle: "Be discovered. Stay visible.",
-    body: "Technical SEO audits, intent-based keyword architectures, and white-hat backlink acquisition designed for compounding organic visibility.",
-    features: ["Technical SEO audits & Core Web Vitals", "Commercial keyword & content strategy", "Schema markup & on-page tuning", "High-authority link acquisition"],
-    color: "#22d3ee",
+    id: "brand",
+    category: "Brand Practice",
+    title: "Brand Strategy, Identity & Packaging",
+    color: "from-purple-500 to-indigo-600",
+    glow: "rgba(139, 92, 246, 0.2)",
+    icon: Palette,
+    summary: "Establish an unmistakable, premium brand position that separates you from commodity competitors.",
+    services: [
+      {
+        name: "Brand Positioning & Naming",
+        desc: "Core brand thesis, competitive moat, naming validation, and customer messaging playbook.",
+        deliverables: "Comprehensive Brand Guidelines & Messaging Bible",
+      },
+      {
+        name: "Logo & Visual Identity",
+        desc: "High-contrast wordmark, color palette, typography hierarchy, and brand asset library.",
+        deliverables: "Full vector suite, guidelines & export sets",
+      },
+      {
+        name: "Corporate Identity & Collaterals",
+        desc: "Stationery, office/factory signage, vehicle branding, pitch decks & sales templates.",
+        deliverables: "Print-ready CMYK files + editable PowerPoint/Keynote",
+      },
+      {
+        name: "Packaging Architecture",
+        desc: "Structural and graphic packaging design for retail and e-commerce compliance.",
+        deliverables: "Dielines, 3D mockups & production print specs",
+      },
+    ],
   },
   {
-    icon: Share2,
-    number: "02",
-    title: "Social Media & Video",
-    subtitle: "Build attention into community.",
-    body: "Platform-native content strategies and short-form video reels that turn your brand into a trusted market authority.",
-    features: ["Short-form reels & viral video editing", "Curated monthly content calendar", "Founder LinkedIn branding & copy", "Active audience community growth"],
-    color: "#818cf8",
+    id: "digital",
+    category: "Digital Practice",
+    title: "High-Speed Web, SEO & GBP Dominance",
+    color: "from-cyan-500 to-blue-600",
+    glow: "rgba(6, 182, 212, 0.2)",
+    icon: Globe,
+    summary: "Turn organic discovery and local intent into high-intent inbound calls and quotation requests.",
+    services: [
+      {
+        name: "Website Development",
+        desc: "Custom 5–15 page responsive website, CMS architecture, sub-second speed optimization.",
+        deliverables: "Next.js / WordPress build, mobile responsive, SSL & analytics",
+      },
+      {
+        name: "Technical & On-Page SEO",
+        desc: "Core Web Vitals tuning, commercial keyword ranking, meta tags, and local search dominance.",
+        deliverables: "Monthly ranking reports & continuous on-page optimization",
+      },
+      {
+        name: "Google Business Profile (GBP)",
+        desc: "Local search dominance, review generation workflows, weekly geo-tagged posts, and photo uploads.",
+        deliverables: "Verified profile optimization, review management & monthly insights",
+      },
+    ],
   },
   {
-    icon: MousePointerClick,
-    number: "03",
-    title: "Google & Meta Performance Ads",
-    subtitle: "Spend smarter. Scale faster.",
-    body: "Precision paid media funnels engineered around qualified leads, low acquisition costs, and verified bottom-line ROAS.",
-    features: ["High-converting Meta & Instagram ad sets", "Google Search & High-Intent Shopping", "Full retargeting funnel architecture", "ROAS tracking & creative refresh sprints"],
-    color: "#f472b6",
+    id: "content",
+    category: "Content Practice",
+    title: "Reels, LinkedIn Thought Leadership & AI Content",
+    color: "from-pink-500 to-rose-600",
+    glow: "rgba(236, 72, 153, 0.2)",
+    icon: Video,
+    summary: "Consistent, compounding creative that captures attention and turns passive viewers into buyers.",
+    services: [
+      {
+        name: "Social Media Engine",
+        desc: "Editorial calendar, graphic design, punchy captions, automated publishing & community engagement.",
+        deliverables: "12–20+ posts/month across Instagram, Facebook & LinkedIn",
+      },
+      {
+        name: "Founder LinkedIn Branding",
+        desc: "Ghostwriting, thought leadership strategy, and industry case studies for SME founders and CEOs.",
+        deliverables: "3–4 curated founder posts per week + network engagement",
+      },
+      {
+        name: "Photography & Video Production",
+        desc: "Product shoots, factory/office tours, customer video testimonials, and viral short-form reels.",
+        deliverables: "Raw b-roll library + 4–8 edited reels per month",
+      },
+      {
+        name: "AI Content Acceleration",
+        desc: "AI-assisted multivariate copy, ad image variants, and script storyboards supervised by human taste.",
+        deliverables: "24+ testable creative variations per sprint",
+      },
+    ],
   },
   {
-    icon: PenSquare,
-    number: "04",
-    title: "Content Marketing & Copy",
-    subtitle: "Turn expertise into pipeline.",
-    body: "Strategic copywriting and thought leadership assets that educate target prospects, handle objections, and generate inbound deal flow.",
-    features: ["Bottom-of-funnel customer case studies", "In-depth thought leadership articles", "Email nurture sequences & drip funnels", "High-converting ad scriptwriting"],
-    color: "#34d399",
-  },
-  {
-    icon: Layout,
-    number: "05",
-    title: "High-Speed Web & CRO",
-    subtitle: "Turn visits into customers.",
-    body: "Fast, sleek landing pages engineered around buyer psychology, mobile speed optimization, and ruthless conversion rate testing.",
-    features: ["Bespoke React/Next.js landing pages", "A/B testing & heat-map user recording", "Sub-second loading speed scores", "Integrated CRM & booking form flows"],
-    color: "#fb923c",
-  },
-  {
-    icon: LineChart,
-    number: "06",
-    title: "Analytics & Strategy Pod",
-    subtitle: "Know what actually produces revenue.",
-    body: "Unified revenue dashboards and multi-touch attribution that show you exactly where every marketing dollar is generated.",
-    features: ["Looker Studio real-time dashboards", "Server-side GTM & Meta CAPI setup", "CAC, LTV & unit economics analysis", "Weekly strategic roadmap reviews"],
-    color: "#a78bfa",
+    id: "growth",
+    category: "Growth Practice",
+    title: "Performance Ads & Measurable ROI Engine",
+    color: "from-emerald-500 to-teal-600",
+    glow: "rgba(16, 185, 129, 0.2)",
+    icon: TrendingUp,
+    summary: "Profitable paid customer acquisition campaigns backed by transparent unit economics.",
+    services: [
+      {
+        name: "Meta Performance Ads",
+        desc: "Full-funnel Instagram and Facebook ads designed to capture qualified SME and consumer leads.",
+        deliverables: "Audience targeting, creative testing & weekly CPL optimization",
+      },
+      {
+        name: "Google Search & Shopping Ads",
+        desc: "High-intent search campaigns capturing prospects actively searching for your products.",
+        deliverables: "Negative keyword pruning, bid management & ROAS tracking",
+      },
+      {
+        name: "Retargeting & Conversion Tuning",
+        desc: "Re-engage website drop-offs and social visitors with high-urgency testimonials and offers.",
+        deliverables: "Multi-tier retargeting funnels + landing page CRO reviews",
+      },
+      {
+        name: "Executive ROI Dashboard",
+        desc: "Real-time Looker Studio dashboard tracking spend, leads, cost-per-lead, and pipeline value.",
+        deliverables: "Live dashboard link + weekly executive commentary",
+      },
+    ],
   },
 ];
 
 export default function ServicesList() {
+  const [selectedFilter, setSelectedFilter] = useState("all");
+
+  const filteredPractices = selectedFilter === "all"
+    ? PRACTICES
+    : PRACTICES.filter((p) => p.id === selectedFilter);
+
   return (
-    <section id="services" style={{ background: "#0b1728", padding: "80px 0" }}>
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "0 24px" }}>
+    <section id="practice-matrix" className="py-20 md:py-28 bg-[#070d18] text-white relative">
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
         
-        <Reveal>
-          <div style={{ maxWidth: "600px", marginBottom: "48px" }}>
-            <div className="section-badge" style={{ marginBottom: "1rem" }}>
-              Our Capabilities
-            </div>
-            <h2 style={{ fontSize: "clamp(2rem,4vw,3.2rem)", fontWeight: 900, color: "#f1f5f9", letterSpacing: "-0.02em", lineHeight: 1.1 }}>
-              Six disciplines. <br />
-              <span className="grad-text">One unified engine.</span>
-            </h2>
-            <p style={{ marginTop: "16px", color: "#94a3b8", lineHeight: 1.7, fontSize: "1rem" }}>
-              Choose the exact growth sprint your business needs right now, or deploy our full omnichannel retainer for maximum market velocity.
-            </p>
-          </div>
-        </Reveal>
+        {/* Practice Filter Tabs */}
+        <div className="flex flex-wrap items-center justify-center gap-2 mb-16">
+          <button
+            onClick={() => setSelectedFilter("all")}
+            className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+              selectedFilter === "all"
+                ? "bg-gradient-to-r from-orange-400 via-pink-400 to-cyan-400 text-slate-950 font-black shadow-lg shadow-cyan-500/20"
+                : "bg-[#0b1424] border border-white/10 text-slate-300 hover:text-white hover:border-white/20"
+            }`}
+          >
+            All 4 Practices
+          </button>
+          {PRACTICES.map((p) => (
+            <button
+              key={p.id}
+              onClick={() => setSelectedFilter(p.id)}
+              className={`px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                selectedFilter === p.id
+                  ? "bg-cyan-400 text-slate-950 font-black shadow-md shadow-cyan-400/25"
+                  : "bg-[#0b1424] border border-white/10 text-slate-300 hover:text-white hover:border-white/20"
+              }`}
+            >
+              {p.category}
+            </button>
+          ))}
+        </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit,minmax(320px,1fr))", gap: "24px" }}>
-          {SERVICES.map((svc, i) => {
-            const Icon = svc.icon;
+        {/* Practice Blocks */}
+        <div className="space-y-16">
+          {filteredPractices.map((practice, pIdx) => {
+            const Icon = practice.icon;
             return (
-              <Reveal key={svc.title} variant="up" delay={(i % 3) * 80}>
-                <div
-                  className="glass-card"
-                  style={{
-                    padding: "32px",
-                    height: "100%",
-                    display: "flex",
-                    flexDirection: "column",
-                    justifyContent: "space-between",
-                    transition: "all 0.3s ease",
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "translateY(-6px)";
-                    e.currentTarget.style.borderColor = `${svc.color}40`;
-                    e.currentTarget.style.boxShadow = `0 20px 48px rgba(0,0,0,0.4), 0 0 20px ${svc.color}15`;
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = "translateY(0)";
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-                    e.currentTarget.style.boxShadow = "none";
-                  }}
-                >
-                  <div>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "20px" }}>
-                      <div
-                        style={{
-                          width: "52px",
-                          height: "52px",
-                          borderRadius: "14px",
-                          background: `${svc.color}15`,
-                          border: `1px solid ${svc.color}25`,
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                        }}
-                      >
-                        <Icon size={24} color={svc.color} />
+              <Reveal key={practice.id} variant="up" delay={pIdx * 100}>
+                <div className="rounded-3xl bg-[#091122] border border-white/[0.08] overflow-hidden p-8 sm:p-12 shadow-2xl relative">
+                  
+                  {/* Top Practice Header */}
+                  <div className="flex flex-col md:flex-row md:items-center justify-between pb-8 border-b border-white/[0.08] gap-6">
+                    <div className="flex items-start gap-4">
+                      <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${practice.color} flex items-center justify-center text-white shrink-0 shadow-lg`}>
+                        <Icon className="w-7 h-7" />
                       </div>
-                      <span style={{ fontSize: "0.8rem", fontWeight: 800, color: "#475569", letterSpacing: "0.05em" }}>
-                        {svc.number}
-                      </span>
+                      <div>
+                        <span className="text-xs font-bold uppercase tracking-widest text-cyan-400 font-mono">
+                          {practice.category}
+                        </span>
+                        <h2 className="text-2xl sm:text-3xl font-black text-white mt-1">
+                          {practice.title}
+                        </h2>
+                        <p className="mt-1 text-sm text-slate-300 max-w-2xl">
+                          {practice.summary}
+                        </p>
+                      </div>
                     </div>
 
-                    <p style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.1em", color: svc.color, fontWeight: 700, marginBottom: "6px" }}>
-                      {svc.subtitle}
-                    </p>
-                    <h3 style={{ fontSize: "1.3rem", fontWeight: 800, color: "#f1f5f9", marginBottom: "12px" }}>
-                      {svc.title}
-                    </h3>
-                    <p style={{ fontSize: "0.9rem", color: "#94a3b8", lineHeight: 1.7, marginBottom: "24px" }}>
-                      {svc.body}
-                    </p>
-
-                    <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", paddingTop: "18px", display: "flex", flexDirection: "column", gap: "10px" }}>
-                      {svc.features.map((f) => (
-                        <div key={f} style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "0.85rem", color: "#cbd5e1" }}>
-                          <CheckCircle2 size={15} color={svc.color} style={{ flexShrink: 0 }} />
-                          {f}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
-                  <div style={{ marginTop: "28px", paddingTop: "16px", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
                     <Link
                       to="/contact"
-                      style={{
-                        display: "inline-flex",
-                        alignItems: "center",
-                        gap: "6px",
-                        fontSize: "0.875rem",
-                        fontWeight: 700,
-                        color: svc.color,
-                        textDecoration: "none",
-                      }}
+                      className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 hover:border-cyan-400/40 text-cyan-300 text-xs font-bold self-start md:self-auto transition-all"
                     >
-                      Book this capability <ArrowRight size={15} />
+                      <span>Inquire for {practice.category}</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
                     </Link>
                   </div>
+
+                  {/* Sub-services Grid */}
+                  <div className="mt-8 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {practice.services.map((sub, sIdx) => (
+                      <div
+                        key={sIdx}
+                        className="p-6 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-cyan-400/30 transition-all flex flex-col justify-between"
+                      >
+                        <div>
+                          <div className="flex items-center gap-2 text-sm font-bold text-white mb-2">
+                            <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                            <span>{sub.name}</span>
+                          </div>
+                          <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">
+                            {sub.desc}
+                          </p>
+                        </div>
+                        <div className="mt-4 pt-3 border-t border-white/[0.05] text-[11px] font-mono text-cyan-300/80">
+                          <span className="text-slate-400">Deliverables: </span>
+                          {sub.deliverables}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
                 </div>
               </Reveal>
             );

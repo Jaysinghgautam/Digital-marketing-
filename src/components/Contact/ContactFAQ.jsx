@@ -1,154 +1,112 @@
 import { useState } from "react";
-import { ChevronDown, HelpCircle, ArrowRight } from "lucide-react";
+import { ChevronDown, HelpCircle, ArrowRight, Sparkles } from "lucide-react";
 import Reveal from "../Reveal";
 import { Link } from "react-router-dom";
 
 const FAQS = [
   {
-    q: "What is your typical onboarding timeline?",
-    a: "Most engagements kick off within 7 to 10 days of signing. We start with an extensive audit of your existing accounts, competitor reconnaissance, and establish tracking pixels and shared Slack channels before launching creative sprints.",
+    q: "How does the VOOPIFY monthly retainer model work?",
+    a: "We operate as your dedicated outsourced marketing department. You choose a tiered monthly retainer (Starter, Growth, Scale, or Enterprise SME) based on your growth targets. Your retainer covers strategy, brand design, web maintenance, reels/video content, and performance ad management under a single accountable pod.",
   },
   {
-    q: "Do you offer month-to-month contracts or lock-ins?",
-    a: "We work on flexible 3-month initial commitments to allow sufficient time for data validation and testing funnels, after which retainers transition into rolling month-to-month agreements with a simple 30-day notice period.",
+    q: "What is your onboarding timeline and SLA?",
+    a: "Every engagement follows our standardized 15-day onboarding SOP: Days 0–2 (Kickoff & Brand Questionnaire), Days 3–7 (Competitor & Asset Audit), Days 8–14 (First Month Calendar & Ad Angles Presented), Day 15 (Live Deliverables & Ad Sprints). Content revisions have a strict 48-hour SLA window.",
   },
   {
-    q: "How do you track and report campaign ROI?",
-    a: "You get access to a 24/7 live Looker Studio dashboard tracking real-time ad spend, leads generated, cost-per-acquisition (CPA), and pipeline revenue. We also conduct weekly or bi-weekly video syncs to review strategic progress.",
+    q: "Why is there an initial 3-month commitment?",
+    a: "Compounding marketing (SEO rank development, algorithmic ad learning, brand authority) takes 60–90 days to generate statistically meaningful ROI. After the initial 3 months, retainers roll over monthly with a transparent 30-day notice period.",
   },
   {
-    q: "Can you collaborate with our existing in-house team?",
-    a: "Yes. Many of our clients have in-house designers or sales teams. We frequently act as the specialized performance arm or SEO specialist, integrating seamlessly with your internal workflow.",
+    q: "How does AI fit into VOOPIFY's delivery?",
+    a: "We treat AI as a production accelerant (generating multivariate ad copy, visual hooks, and storyboards 40–60% faster) supervised 100% by senior human art directors and strategists. This allows us to hold SME retainer pricing steady while delivering 3x faster turnaround.",
   },
   {
-    q: "What industries do you specialize in?",
-    a: "Our core expertise is in B2B Services, Manufacturing & Export MSMEs, Healthcare & Clinics, Real Estate, and D2C brands looking for predictable customer acquisition channels.",
+    q: "Can we start with a one-time project first?",
+    a: "Yes. Many clients start with a Brand Identity project, high-speed website build, or commercial photography sprint (typically ₹25,000–₹1,50,000) and naturally convert into an ongoing growth retainer within 60–90 days once they experience our quality.",
+  },
+  {
+    q: "How do you report results to the founder?",
+    a: "You receive a 24/7 live executive Looker Studio dashboard tracking qualified enquiries, cost per lead (CPL), search visibility, and ROAS. We conduct bi-weekly or monthly strategy calls to review commercial pipeline impact, not vanity metrics.",
   },
 ];
-
-function FAQItem({ q, a, isOpen, onToggle }) {
-  return (
-    <div
-      style={{
-        background: isOpen ? "rgba(34,211,238,0.04)" : "rgba(255,255,255,0.02)",
-        border: `1px solid ${isOpen ? "rgba(34,211,238,0.25)" : "rgba(255,255,255,0.08)"}`,
-        borderRadius: "14px",
-        overflow: "hidden",
-        transition: "all 0.25s ease",
-      }}
-    >
-      <button
-        type="button"
-        onClick={onToggle}
-        style={{
-          width: "100%",
-          padding: "20px 24px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-          textAlign: "left",
-          background: "none",
-          border: "none",
-          cursor: "pointer",
-          gap: "16px",
-        }}
-      >
-        <span style={{ fontSize: "1.05rem", fontWeight: 600, color: isOpen ? "#22d3ee" : "#f1f5f9" }}>
-          {q}
-        </span>
-        <div
-          style={{
-            width: "32px",
-            height: "32px",
-            borderRadius: "8px",
-            background: isOpen ? "rgba(34,211,238,0.15)" : "rgba(255,255,255,0.05)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            color: isOpen ? "#22d3ee" : "#94a3b8",
-            flexShrink: 0,
-            transition: "all 0.2s ease",
-            transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
-          }}
-        >
-          <ChevronDown size={18} />
-        </div>
-      </button>
-
-      {isOpen && (
-        <div style={{ padding: "0 24px 22px", borderTop: "1px solid rgba(255,255,255,0.05)", paddingTop: "16px" }}>
-          <p style={{ color: "#94a3b8", fontSize: "0.95rem", lineHeight: 1.7, margin: 0 }}>
-            {a}
-          </p>
-        </div>
-      )}
-    </div>
-  );
-}
 
 export default function ContactFAQ() {
   const [openIndex, setOpenIndex] = useState(0);
 
-  return (
-    <section style={{ background: "#070d18", padding: "80px 0 100px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-      <div style={{ maxWidth: "860px", margin: "0 auto", padding: "0 24px" }}>
-        
-        <Reveal variant="up" className="text-center" style={{ textAlign: "center", marginBottom: "48px" }}>
-          <span className="section-badge" style={{ marginBottom: "1rem" }}>
-            <HelpCircle size={14} />
-            Frequently Asked Questions
-          </span>
-          <h2 style={{ fontSize: "clamp(2rem, 4vw, 3rem)", fontWeight: 800, color: "#f1f5f9", margin: "0 0 1rem", letterSpacing: "-0.02em" }}>
-            Common questions, <span className="grad-text">answered.</span>
-          </h2>
-          <p style={{ color: "#94a3b8", fontSize: "1rem", maxWidth: "520px", margin: "0 auto" }}>
-            Everything you need to know about working with Ascend Digital as your growth marketing partner.
-          </p>
-        </Reveal>
+  const toggle = (idx) => {
+    setOpenIndex(openIndex === idx ? null : idx);
+  };
 
-        <Reveal variant="up" delay={150}>
-          <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-            {FAQS.map((faq, idx) => (
-              <FAQItem
-                key={faq.q}
-                q={faq.q}
-                a={faq.a}
-                isOpen={openIndex === idx}
-                onToggle={() => setOpenIndex(openIndex === idx ? -1 : idx)}
-              />
-            ))}
+  return (
+    <section className="bg-[#050914] py-20 lg:py-28 border-t border-white/[0.08] relative">
+      <div className="max-w-4xl mx-auto px-5 sm:px-6 relative z-10">
+        
+        {/* Header */}
+        <Reveal variant="up">
+          <div className="text-center max-w-2xl mx-auto mb-14">
+            <span className="inline-flex items-center gap-1.5 text-xs font-mono font-bold uppercase tracking-wider text-cyan-400 bg-cyan-400/10 px-3.5 py-1.5 rounded-full border border-cyan-400/20">
+              <HelpCircle className="w-3.5 h-3.5" />
+              Frequently Asked Questions
+            </span>
+            <h2 className="mt-4 text-3xl sm:text-4xl font-black text-white tracking-tight">
+              Everything You Need to Know
+            </h2>
+            <p className="mt-2 text-sm text-slate-300">
+              Clear answers about our retainer structure, SLAs, delivery pods, and commercial guarantees.
+            </p>
           </div>
         </Reveal>
 
-        <Reveal variant="up" delay={250}>
-          <div
-            style={{
-              marginTop: "56px",
-              padding: "32px",
-              borderRadius: "20px",
-              background: "linear-gradient(135deg, rgba(34,211,238,0.06), rgba(45,212,191,0.02))",
-              border: "1px solid rgba(34,211,238,0.2)",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              textAlign: "center",
-              gap: "16px",
-            }}
-          >
-            <h3 style={{ fontSize: "1.35rem", fontWeight: 700, color: "#f1f5f9", margin: 0 }}>
-              Have a unique requirement or custom project?
-            </h3>
-            <p style={{ color: "#94a3b8", fontSize: "0.95rem", maxWidth: "480px", margin: 0, lineHeight: 1.6 }}>
-              Feel free to email us directly or book a consultation call with our team. We're happy to answer any specific technical questions.
-            </p>
-            <a
-              href="mailto:hello@ascenddigital.com"
-              className="btn-secondary"
-              style={{ padding: "12px 24px", fontSize: "0.9rem" }}
-            >
-              Direct Email: hello@ascenddigital.com
-              <ArrowRight size={16} />
-            </a>
+        {/* Accordion */}
+        <div className="space-y-4">
+          {FAQS.map((faq, idx) => {
+            const isOpen = openIndex === idx;
+            return (
+              <Reveal key={idx} variant="up" delay={idx * 60}>
+                <div
+                  className={`rounded-2xl transition-all duration-200 border overflow-hidden ${
+                    isOpen
+                      ? "bg-[#091122] border-cyan-400/40 shadow-xl shadow-cyan-500/5"
+                      : "bg-[#091122]/60 border-white/[0.08] hover:border-white/20"
+                  }`}
+                >
+                  <button
+                    type="button"
+                    onClick={() => toggle(idx)}
+                    className="w-full p-6 text-left flex items-center justify-between gap-4"
+                  >
+                    <span className={`text-base font-bold transition-colors ${isOpen ? "text-cyan-300" : "text-white"}`}>
+                      {faq.q}
+                    </span>
+                    <div
+                      className={`w-7 h-7 rounded-lg border flex items-center justify-center shrink-0 transition-all ${
+                        isOpen
+                          ? "bg-cyan-400/10 border-cyan-400/40 text-cyan-400 rotate-180"
+                          : "bg-white/5 border-white/10 text-slate-400"
+                      }`}
+                    >
+                      <ChevronDown className="w-4 h-4" />
+                    </div>
+                  </button>
+
+                  {isOpen && (
+                    <div className="px-6 pb-6 pt-1 text-sm text-slate-300 leading-relaxed border-t border-white/[0.05] animate-in fade-in duration-200">
+                      {faq.a}
+                    </div>
+                  )}
+                </div>
+              </Reveal>
+            );
+          })}
+        </div>
+
+        {/* Still have questions */}
+        <Reveal variant="fade" delay={300}>
+          <div className="mt-12 text-center text-xs text-slate-400">
+            Have a custom requirement or multi-location expansion?{" "}
+            <Link to="/contact" className="text-cyan-400 font-bold hover:underline">
+              Speak directly with our strategy team &rarr;
+            </Link>
           </div>
         </Reveal>
 

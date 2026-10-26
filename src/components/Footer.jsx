@@ -1,147 +1,189 @@
 import { Link } from "react-router-dom";
-import { Linkedin, Twitter, Instagram, ArrowUpRight, Mail, Phone, MapPin } from "lucide-react";
-
-const NAV_COLS = [
-  {
-    heading: "Company",
-    links: [
-      ["Home", "/"],
-      ["About Us", "/about"],
-      ["Services", "/services"],
-      ["Portfolio", "/case-studies"],
-      ["Contact", "/contact"],
-    ],
-  },
-  {
-    heading: "Services",
-    links: [
-      ["SEO & Organic", "/services"],
-      ["Google & Meta Ads", "/services"],
-      ["Social Media", "/services"],
-      ["Content Marketing", "/services"],
-      ["Web & Landing Pages", "/services"],
-    ],
-  },
-  {
-    heading: "Legal",
-    links: [
-      ["Privacy Policy", "#"],
-      ["Terms of Service", "#"],
-      ["Cookie Policy", "#"],
-    ],
-  },
-];
+import { Linkedin, Twitter, Instagram, ArrowUpRight, Mail, Phone, MapPin, Sparkles, ShieldCheck } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer style={{ background: "#060d1a", color: "#94a3b8", borderTop: "1px solid rgba(34,211,238,0.08)" }}>
-      <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "64px 24px 32px" }}>
+    <footer className="bg-[#050914] text-slate-400 border-t border-white/[0.08] relative overflow-hidden">
+      {/* Subtle background glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3/4 h-32 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-cyan-500/10 blur-3xl pointer-events-none" />
 
-        {/* Top Grid */}
-        <div style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))",
-          gap: "48px",
-          marginBottom: "48px",
-        }}>
-          {/* Brand col */}
-          <div style={{ gridColumn: "span 1" }}>
-            <Link to="/" style={{ display: "inline-block" }}>
-              <img src="/voopify.png" alt="Ascend Digital" style={{ height: "48px", width: "auto", objectFit: "contain" }} />
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 py-16 lg:py-20 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
+          
+          {/* Col 1: Brand Info (span 2 cols) */}
+          <div className="lg:col-span-2 space-y-6">
+            <Link to="/" className="inline-block group">
+              <img
+                src="/voopify.png"
+                alt="VOOPIFY"
+                className="h-12 w-auto object-contain drop-shadow-[0_0_20px_rgba(139,92,246,0.3)] transition-transform duration-300 group-hover:scale-105"
+              />
             </Link>
-            <p style={{ marginTop: "16px", fontSize: "0.875rem", lineHeight: 1.7, color: "#64748b", maxWidth: "260px" }}>
-              A performance-focused digital marketing agency helping Indian SMEs turn strategy,
-              creativity, and data into sustainable business growth.
-            </p>
 
-            {/* Contact */}
-            <div style={{ marginTop: "20px", display: "flex", flexDirection: "column", gap: "10px" }}>
-              {[
-                [Mail, "hello@ascenddigital.com"],
-                [Phone, "+91 98765 43210"],
-                [MapPin, "Jaunpur, Uttar Pradesh, India"],
-              ].map(([Icon, text]) => (
-                <div key={text} style={{ display: "flex", alignItems: "center", gap: "10px", fontSize: "0.8rem", color: "#64748b" }}>
-                  <Icon size={14} color="#22d3ee" />
-                  {text}
-                </div>
-              ))}
+            <div className="space-y-2">
+              <div className="text-sm font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-orange-400 via-pink-400 to-cyan-400">
+                “Your Growth. Our Business.”
+              </div>
+              <p className="text-sm text-slate-400 leading-relaxed max-w-sm">
+                Subscription-based creative growth partner closing the marketing gap for India&apos;s 63M+ MSMEs with agency-grade discipline, AI-accelerated velocity, and transparent ROI.
+              </p>
             </div>
 
-            {/* Socials */}
-            <div style={{ display: "flex", gap: "10px", marginTop: "20px" }}>
-              {[Linkedin, Twitter, Instagram].map((Icon, i) => (
-                <a key={i} href="#" style={{
-                  width: "36px", height: "36px",
-                  borderRadius: "10px",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  display: "flex", alignItems: "center", justifyContent: "center",
-                  color: "#64748b",
-                  transition: "all 0.2s",
-                  textDecoration: "none",
-                }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.color = "#22d3ee";
-                    e.currentTarget.style.borderColor = "rgba(34,211,238,0.4)";
-                    e.currentTarget.style.background = "rgba(34,211,238,0.07)";
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.color = "#64748b";
-                    e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
-                    e.currentTarget.style.background = "transparent";
-                  }}
-                >
-                  <Icon size={15} />
+            <div className="pt-2 space-y-2.5 text-xs text-slate-400">
+              <div className="flex items-center gap-2.5">
+                <Mail className="w-4 h-4 text-cyan-400 shrink-0" />
+                <a href="mailto:growth@voopify.com" className="hover:text-cyan-400 transition-colors">
+                  growth@voopify.com
                 </a>
-              ))}
+              </div>
+              <div className="flex items-center gap-2.5">
+                <Phone className="w-4 h-4 text-pink-400 shrink-0" />
+                <span>+91 98765 43210</span>
+              </div>
+              <div className="flex items-center gap-2.5">
+                <MapPin className="w-4 h-4 text-purple-400 shrink-0" />
+                <span>Commercial Hubs: Mumbai · Delhi NCR · Jaunpur, India</span>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex items-center gap-3 pt-2">
+              {[
+                { icon: Linkedin, href: "https://linkedin.com", label: "LinkedIn" },
+                { icon: Twitter, href: "https://twitter.com", label: "Twitter" },
+                { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
+              ].map((s, idx) => {
+                const Icon = s.icon;
+                return (
+                  <a
+                    key={idx}
+                    href={s.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    aria-label={s.label}
+                    className="w-9 h-9 rounded-xl border border-white/10 bg-white/[0.03] hover:bg-cyan-500/10 hover:border-cyan-400/40 hover:text-cyan-400 text-slate-400 flex items-center justify-center transition-all duration-200"
+                  >
+                    <Icon className="w-4 h-4" />
+                  </a>
+                );
+              })}
             </div>
           </div>
 
-          {/* Nav Columns */}
-          {NAV_COLS.map((col) => (
-            <div key={col.heading}>
-              <p style={{ color: "#e2e8f0", fontWeight: 700, fontSize: "0.875rem", marginBottom: "16px", letterSpacing: "0.04em" }}>
-                {col.heading}
-              </p>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
-                {col.links.map(([label, path]) => (
-                  <li key={label}>
-                    <Link to={path} style={{
-                      display: "inline-flex", alignItems: "center", gap: "4px",
-                      fontSize: "0.85rem", color: "#64748b", textDecoration: "none",
-                      transition: "color 0.2s",
-                    }}
-                      onMouseEnter={e => e.currentTarget.style.color = "#22d3ee"}
-                      onMouseLeave={e => e.currentTarget.style.color = "#64748b"}
-                    >
-                      {label}
-                      <ArrowUpRight size={11} style={{ opacity: 0.5 }} />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
+          {/* Col 2: The 4 Practices */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">
+              The 4 Practices
+            </h4>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link to="/services" className="hover:text-cyan-400 transition-colors flex items-center justify-between group">
+                  <span>Brand Practice</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-cyan-400" />
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-cyan-400 transition-colors flex items-center justify-between group">
+                  <span>Digital Practice (SEO & Web)</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-cyan-400" />
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-cyan-400 transition-colors flex items-center justify-between group">
+                  <span>Content Practice (Reels & AI)</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-cyan-400" />
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="hover:text-cyan-400 transition-colors flex items-center justify-between group">
+                  <span>Growth Practice (Paid Ads)</span>
+                  <ArrowUpRight className="w-3.5 h-3.5 opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-cyan-400" />
+                </Link>
+              </li>
+              <li>
+                <Link to="/#pricing" className="text-cyan-400/90 hover:text-cyan-300 font-semibold transition-colors flex items-center gap-1 text-xs pt-1">
+                  <Sparkles className="w-3.5 h-3.5" /> Retainer Ladder (₹18K - ₹2L)
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 3: Company & Operating System */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">
+              VOOPIFY OS & Vision
+            </h4>
+            <ul className="space-y-2.5 text-sm">
+              <li>
+                <Link to="/about" className="hover:text-cyan-400 transition-colors">
+                  Founder Vision & Thesis
+                </Link>
+              </li>
+              <li>
+                <Link to="/#process" className="hover:text-cyan-400 transition-colors">
+                  The V-O-O-P Operating System
+                </Link>
+              </li>
+              <li>
+                <Link to="/case-studies" className="hover:text-cyan-400 transition-colors">
+                  SME Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="hover:text-cyan-400 transition-colors">
+                  Vision 2035 & 1,000 Clients
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="hover:text-cyan-400 transition-colors">
+                  Book 20-Min Discovery Audit
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Col 4: Target SME Sectors */}
+          <div className="space-y-4">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">
+              Target Industries
+            </h4>
+            <div className="flex flex-wrap gap-1.5 text-xs">
+              {[
+                "B2B Manufacturers",
+                "Global Exporters",
+                "D2C Consumer Brands",
+                "Healthcare & Clinics",
+                "Restaurants & Food",
+                "Education & Academies",
+                "Real Estate",
+                "Professional Services",
+              ].map((ind, i) => (
+                <span
+                  key={i}
+                  className="px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/[0.08] text-slate-300"
+                >
+                  {ind}
+                </span>
+              ))}
             </div>
-          ))}
+            <div className="pt-2 flex items-center gap-2 text-xs text-emerald-400">
+              <ShieldCheck className="w-4 h-4 shrink-0" />
+              <span>SOP-driven 48h SLA &amp; No lock-ins</span>
+            </div>
+          </div>
         </div>
 
-        {/* Divider */}
-        <div className="section-glow-divider" style={{ marginBottom: "24px" }} />
-
         {/* Bottom Bar */}
-        <div style={{
-          display: "flex",
-          flexWrap: "wrap",
-          justifyContent: "space-between",
-          alignItems: "center",
-          gap: "12px",
-          fontSize: "0.78rem",
-          color: "#334155",
-        }}>
-          <span>© {new Date().getFullYear()} Ascend Digital. All rights reserved.</span>
-          <span style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-            <span style={{ color: "#22d3ee", fontSize: "10px" }}>●</span>
-            Jaunpur, Uttar Pradesh, India
-          </span>
+        <div className="mt-14 pt-8 border-t border-white/[0.08] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <div>
+            © {new Date().getFullYear()} VOOPIFY Technologies &amp; Creative LLP. All rights reserved. Strategic Blueprint v1.0.
+          </div>
+          <div className="flex items-center gap-6">
+            <span className="text-slate-400">“Your Growth. Our Business.”</span>
+            <Link to="/contact" className="text-cyan-400 hover:underline">
+              Partner With Us
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

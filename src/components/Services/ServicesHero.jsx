@@ -1,136 +1,125 @@
 import { Link } from "react-router-dom";
-import { Sparkles, ArrowRight, CheckCircle2, TrendingUp, Zap } from "lucide-react";
+import { Sparkles, ArrowRight, CheckCircle2, TrendingUp, Layers, Cpu, ShieldCheck } from "lucide-react";
 import Reveal from "../Reveal";
 
 const STATS = [
-  ["6", "Growth Disciplines"],
-  ["3.2x", "Average ROAS"],
-  ["47%", "Avg CAC Reduction"],
-  ["92%", "Client Retention"],
+  ["4", "Core Practices"],
+  ["40–60%", "AI Production Speedup"],
+  ["48 Hours", "Default SLA Window"],
+  ["98%", "Retainer Retention"],
 ];
 
 export default function ServicesHero() {
   return (
-    <>
-      <section style={{ background: "#070d18", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "560px", height: "560px", borderRadius: "50%", background: "rgba(34,211,238,0.07)", filter: "blur(100px)" }} />
-        <div style={{ position: "absolute", bottom: "-80px", left: "-60px", width: "400px", height: "400px", borderRadius: "50%", background: "rgba(96,165,250,0.05)", filter: "blur(80px)" }} />
+    <section className="bg-[#050914] text-white relative overflow-hidden pt-16 pb-20 lg:pt-24 lg:pb-28 border-b border-white/[0.08]">
+      {/* Background ambient glow */}
+      <div className="absolute top-0 right-1/4 w-96 h-96 bg-purple-600/15 rounded-full blur-[130px] pointer-events-none" />
+      <div className="absolute bottom-0 left-1/4 w-96 h-96 bg-cyan-600/15 rounded-full blur-[130px] pointer-events-none" />
 
-        <div style={{ position: "relative", maxWidth: "1280px", margin: "0 auto", padding: "96px 24px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", alignItems: "center" }} className="services-hero-grid">
-          <div>
-            <Reveal>
-              <div className="section-badge" style={{ marginBottom: "1.25rem" }}>
-                <Sparkles size={13} /> Digital Growth, Engineered
+      <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Text Column */}
+          <div className="lg:col-span-7 space-y-6">
+            <Reveal variant="fade">
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-cyan-400/25 bg-cyan-400/10 text-cyan-300 text-xs font-bold uppercase tracking-wider">
+                <Layers className="w-3.5 h-3.5 text-cyan-400" />
+                <span>VOOPIFY Service Portfolio &amp; Practices</span>
               </div>
             </Reveal>
-            <Reveal delay={100}>
-              <h1 style={{ fontSize: "clamp(2.5rem,5vw,4.5rem)", fontWeight: 900, color: "#f1f5f9", lineHeight: 1.08, letterSpacing: "-0.03em", margin: "0 0 1.25rem" }}>
-                Marketing that <span className="grad-text">moves business.</span>
+
+            <Reveal variant="up" delay={100}>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-tight">
+                Creative That{" "}
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-orange-400 via-pink-400 to-cyan-400">
+                  Grows Business.
+                </span>
               </h1>
             </Reveal>
-            <Reveal delay={200}>
-              <p style={{ fontSize: "1.1rem", color: "#94a3b8", lineHeight: 1.75, maxWidth: "480px", marginBottom: "2rem" }}>
-                From organic discovery to paid acquisition, content, conversion, and analytics — we build the complete growth engine around your business.
+
+            <Reveal variant="up" delay={200}>
+              <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl">
+                VOOPIFY packages branding, high-speed digital real estate, short-form video content, and performance marketing into predictable monthly retainers — run with agency-grade discipline at SME-friendly pricing.
               </p>
             </Reveal>
-            <Reveal delay={300}>
-              <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-                <a href="#services" className="btn-primary">
-                  Explore Services <ArrowRight size={18} />
+
+            <Reveal variant="up" delay={300}>
+              <div className="flex flex-wrap gap-4 pt-2">
+                <a
+                  href="#practice-matrix"
+                  className="px-8 py-4 rounded-xl font-black text-sm text-slate-950 bg-gradient-to-r from-orange-400 via-pink-400 to-cyan-400 hover:opacity-95 shadow-xl shadow-cyan-500/20 transition-all hover:scale-[1.02] flex items-center gap-2"
+                >
+                  <span>Explore 4 Practices</span>
+                  <ArrowRight className="w-4 h-4" />
                 </a>
-                <Link to="/contact" className="btn-secondary">
-                  Talk to an Expert
+
+                <Link
+                  to="/contact"
+                  className="px-7 py-4 rounded-xl font-bold text-sm text-white bg-white/[0.05] hover:bg-white/[0.1] border border-white/10 hover:border-cyan-400/40 backdrop-blur-md transition-all"
+                >
+                  Book 20-Min Growth Audit
                 </Link>
               </div>
             </Reveal>
-            <Reveal delay={450}>
-              <div style={{ marginTop: "1.5rem", display: "flex", gap: "20px", flexWrap: "wrap" }}>
-                {["Strategy First", "Data Backed", "Results Focused"].map((item) => (
-                  <div key={item} style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "0.85rem", color: "#94a3b8" }}>
-                    <CheckCircle2 size={15} color="#22d3ee" /> {item}
-                  </div>
-                ))}
+
+            <Reveal variant="fade" delay={400}>
+              <div className="pt-6 border-t border-white/[0.08] flex flex-wrap items-center gap-6 text-xs text-slate-400">
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                  <span>Single Accountable Team</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-cyan-400 shrink-0" />
+                  <span>SOP-Driven Quality Gates</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-purple-400 shrink-0" />
+                  <span>AI-Accelerated Velocity</span>
+                </div>
               </div>
             </Reveal>
           </div>
 
-          <Reveal variant="scale" delay={150}>
-            <div style={{ position: "relative" }}>
-              <div style={{ position: "absolute", inset: "-16px", background: "rgba(34,211,238,0.07)", borderRadius: "28px", filter: "blur(24px)" }} />
-              <div style={{ position: "relative", borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)" }}>
-                <img
-                  src="https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1400&q=85"
-                  alt="Marketing team"
-                  style={{ width: "100%", aspectRatio: "4/3", objectFit: "cover" }}
-                />
-                <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(7,13,24,0.7) 0%, transparent 60%)" }} />
-                
-                {/* Float metric */}
-                <div style={{
-                  position: "absolute", bottom: "20px", left: "20px", right: "20px",
-                  background: "rgba(11,23,40,0.9)", backdropFilter: "blur(16px)",
-                  borderRadius: "14px", padding: "16px 20px", border: "1px solid rgba(34,211,238,0.15)",
-                }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <div>
-                      <p style={{ fontSize: "0.75rem", color: "#64748b", margin: "0 0 4px" }}>Campaign Performance</p>
-                      <p style={{ fontSize: "1.75rem", fontWeight: 900, color: "#22d3ee", margin: 0, lineHeight: 1 }}>+128.4%</p>
-                    </div>
-                    <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "rgba(34,211,238,0.1)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                      <TrendingUp size={20} color="#22d3ee" />
-                    </div>
+          {/* Right Metrics Panel */}
+          <div className="lg:col-span-5">
+            <Reveal variant="scale" delay={200}>
+              <div className="p-1 rounded-3xl bg-gradient-to-br from-purple-500/30 via-pink-500/20 to-cyan-500/30 shadow-2xl">
+                <div className="p-6 sm:p-8 rounded-[22px] bg-[#091122] border border-white/10 space-y-6">
+                  <div className="flex items-center justify-between pb-4 border-b border-white/10">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-400">
+                      The VOOPIFY Operating Reality
+                    </span>
+                    <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-cyan-400/10 text-cyan-400 font-bold border border-cyan-400/20">
+                      SME Scalability
+                    </span>
                   </div>
-                  <div style={{ marginTop: "12px", height: "6px", borderRadius: "4px", background: "rgba(255,255,255,0.06)", overflow: "hidden" }}>
-                    <div style={{ width: "82%", height: "100%", background: "linear-gradient(90deg,#22d3ee,#2dd4bf)", borderRadius: "4px" }} />
+
+                  <div className="grid grid-cols-2 gap-4">
+                    {STATS.map(([num, lbl], i) => (
+                      <div key={i} className="p-4 rounded-2xl bg-white/[0.03] border border-white/[0.06]">
+                        <div className="text-2xl sm:text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-pink-400 to-cyan-400">
+                          {num}
+                        </div>
+                        <div className="mt-1 text-xs font-semibold text-slate-300">
+                          {lbl}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="p-4 rounded-2xl bg-gradient-to-r from-cyan-950/40 to-purple-950/40 border border-cyan-500/20 text-xs text-slate-300 leading-relaxed flex items-start gap-3">
+                    <Cpu className="w-5 h-5 text-cyan-400 shrink-0 mt-0.5" />
+                    <span>
+                      “AI compresses drafting time by 50%, letting our creative directors focus on brand strategy, commercial positioning, and client revenue.”
+                    </span>
                   </div>
                 </div>
               </div>
-
-              {/* Side badge */}
-              <div style={{
-                position: "absolute", right: "-20px", top: "24px",
-                background: "#0b1728", borderRadius: "12px", padding: "12px 16px",
-                border: "1px solid rgba(34,211,238,0.15)",
-                display: "flex", alignItems: "center", gap: "10px",
-                boxShadow: "0 16px 48px rgba(0,0,0,0.4)",
-              }}>
-                <div style={{ width: "36px", height: "36px", borderRadius: "10px", background: "rgba(34,211,238,0.1)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Zap size={17} color="#22d3ee" />
-                </div>
-                <div>
-                  <p style={{ fontSize: "0.7rem", color: "#64748b", margin: 0 }}>Growth Engine</p>
-                  <p style={{ fontSize: "0.85rem", fontWeight: 700, color: "#f1f5f9", margin: 0 }}>Optimized</p>
-                </div>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      {/* ── Stats Bar ── */}
-      <section style={{ background: "#0b1728" }}>
-        <div className="section-glow-divider" />
-        <div style={{ maxWidth: "1280px", margin: "0 auto", padding: "56px 24px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: "32px" }} className="stats-grid">
-            {STATS.map(([val, label], i) => (
-              <Reveal key={label} variant="up" delay={i * 80}>
-                <div style={{ textAlign: "center" }}>
-                  <div className="stat-number">{val}</div>
-                  <p style={{ marginTop: "8px", fontSize: "0.875rem", color: "#64748b" }}>{label}</p>
-                </div>
-              </Reveal>
-            ))}
+            </Reveal>
           </div>
-        </div>
-        <div className="section-glow-divider" />
-      </section>
 
-      <style>{`
-        @media (max-width: 768px) {
-          .services-hero-grid { grid-template-columns: 1fr !important; }
-          .stats-grid { grid-template-columns: repeat(2,1fr) !important; }
-        }
-      `}</style>
-    </>
+        </div>
+      </div>
+    </section>
   );
 }
