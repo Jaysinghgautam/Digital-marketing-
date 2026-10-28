@@ -1,4 +1,14 @@
-import { Star, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
+ import {
+  Star,
+  Sparkles,
+  ChevronLeft,
+  ChevronRight,
+  Megaphone,
+  Rocket,
+  BarChart3,
+  MessageCircle,
+  ArrowUpRight,
+} from "lucide-react";
 import Reveal from "../Reveal";
 import { useState } from "react";
 
@@ -10,8 +20,7 @@ const TESTIMONIALS_DATA = [
     role: "Founder",
     company: "The Organic Kitchen",
     rating: 5,
-    avatar: "RS",
-    avatarColor: "from-purple-500 to-pink-500",
+    avatar: "https://i.pravatar.cc/150?img=47",
   },
   {
     quote:
@@ -20,8 +29,7 @@ const TESTIMONIALS_DATA = [
     role: "Founder",
     company: "UrbanBite",
     rating: 5,
-    avatar: "AV",
-    avatarColor: "from-orange-500 to-amber-400",
+    avatar: "https://i.pravatar.cc/150?img=12",
   },
   {
     quote:
@@ -30,8 +38,7 @@ const TESTIMONIALS_DATA = [
     role: "Co-Founder",
     company: "Ziva Botanicals",
     rating: 5,
-    avatar: "PM",
-    avatarColor: "from-emerald-500 to-teal-400",
+    avatar: "https://i.pravatar.cc/150?img=32",
   },
   {
     quote:
@@ -40,8 +47,7 @@ const TESTIMONIALS_DATA = [
     role: "Owner",
     company: "NatureHarvest",
     rating: 5,
-    avatar: "RG",
-    avatarColor: "from-cyan-500 to-blue-500",
+    avatar: "https://i.pravatar.cc/150?img=51",
   },
 ];
 
@@ -56,113 +62,144 @@ export default function Testimonials() {
   const visible = [TESTIMONIALS_DATA[current], TESTIMONIALS_DATA[(current + 1) % total]];
 
   return (
-    <section className="py-20 md:py-28 text-white relative overflow-hidden"
-      style={{ background: "linear-gradient(135deg, #1a0533 0%, #2D1065 50%, #0f0a2e 100%)" }}>
+    <section className="">
+      <div className="max-w-full overflow-hidden shadow-2xl">
 
-      {/* Background glow orbs */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 rounded-full pointer-events-none opacity-20"
-        style={{ background: "radial-gradient(circle, #7B2FF7, transparent 70%)", filter: "blur(60px)" }} />
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 rounded-full pointer-events-none opacity-20"
-        style={{ background: "radial-gradient(circle, #FF6B35, transparent 70%)", filter: "blur(60px)" }} />
+        {/* Top bar: Testimonials */}
+        <div className="relative" style={{ background: "#160a2e" }}>
+          <div className="flex flex-col lg:flex-row items-center gap-6 px-6 sm:px-10 py-8">
 
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
-        <div className="grid lg:grid-cols-3 gap-10 items-center">
-
-          {/* Left: Header */}
-          <div className="lg:col-span-1">
-            <Reveal variant="fade">
-              <span className="inline-flex items-center gap-1.5 text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full mb-5"
-                style={{
-                  color: "#FF6B35",
-                  background: "rgba(255,107,53,0.15)",
-                  border: "1px solid rgba(255,107,53,0.3)",
-                }}>
-                <Sparkles className="w-3.5 h-3.5" />
-                Client Testimonials
-              </span>
-            </Reveal>
-
-            <Reveal variant="up" delay={100}>
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-white leading-tight">
-                What Our{" "}
-                <span style={{
-                  background: "linear-gradient(135deg, #FF6B35, #FF8C42)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                }}>
-                  Clients
-                </span>{" "}
-                Say
-              </h2>
-            </Reveal>
-
-            <Reveal variant="up" delay={200}>
-              <p className="mt-4 text-purple-200 text-sm sm:text-base leading-relaxed">
-                Real results from real brands who trusted us with their social media growth.
-              </p>
-            </Reveal>
-
-            {/* Navigation arrows */}
-            <div className="mt-8 flex items-center gap-3">
+            {/* Left: arrow + heading */}
+            <div className="flex items-center gap-4 lg:w-1/4 shrink-0">
               <button
                 onClick={prev}
-                className="w-12 h-12 rounded-full border border-white/20 bg-white/10 text-white hover:bg-white/20 flex items-center justify-center transition-all duration-200 hover:-translate-x-0.5"
+                className="hidden lg:flex w-9 h-9 rounded-full border border-white/20 bg-white/5 text-white hover:bg-white/15 items-center justify-center transition-colors shrink-0"
                 aria-label="Previous"
               >
-                <ChevronLeft className="w-5 h-5" />
+                <ChevronLeft className="w-4 h-4" />
               </button>
-              <button
-                onClick={next}
-                className="w-12 h-12 rounded-full border border-white/20 bg-white/10 text-white hover:bg-white/20 flex items-center justify-center transition-all duration-200 hover:translate-x-0.5"
-                aria-label="Next"
-              >
-                <ChevronRight className="w-5 h-5" />
-              </button>
-              <span className="text-purple-300 text-sm font-medium ml-2">
-                {current + 1} / {total}
-              </span>
+
+              <div>
+                <Reveal variant="fade">
+                  <span className="inline-flex items-center gap-1.5 text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-2"
+                    style={{
+                      color: "#fff",
+                      background: "rgba(255,255,255,0.1)",
+                      border: "1px solid rgba(255,255,255,0.2)",
+                    }}>
+                    Client Testimonials
+                  </span>
+                </Reveal>
+                <Reveal variant="up" delay={100}>
+                  <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-white leading-tight">
+                    What Our Clients{" "}
+                    <span style={{ color: "#FF6B35" }}>Say</span>
+                  </h2>
+                </Reveal>
+              </div>
             </div>
-          </div>
 
-          {/* Right: Testimonial Cards */}
-          <div className="lg:col-span-2 grid sm:grid-cols-2 gap-5">
-            {visible.map((t, idx) => (
-              <Reveal key={`${current}-${idx}`} variant="up" delay={idx * 100}>
-                <div className="p-7 rounded-3xl flex flex-col justify-between h-full"
-                  style={{
-                    background: "rgba(255,255,255,0.07)",
-                    border: "1px solid rgba(255,255,255,0.12)",
-                    backdropFilter: "blur(16px)",
-                  }}>
+            {/* Middle: cards */}
+            <div className="flex-1 grid sm:grid-cols-2 gap-4 w-full">
+              {visible.map((t, idx) => (
+                <Reveal key={`${current}-${idx}`} variant="up" delay={idx * 100}>
+                  <div className="p-5 rounded-2xl flex flex-col h-full"
+                    style={{
+                      background: "rgba(255,255,255,0.06)",
+                      border: "1px solid rgba(255,255,255,0.1)",
+                    }}>
+                    <p className="text-xs sm:text-sm text-white/85 leading-relaxed">
+                      &ldquo;{t.quote}&rdquo;
+                    </p>
 
-                  {/* Stars */}
-                  <div className="flex text-amber-400 gap-1 mb-4">
-                    {[...Array(t.rating)].map((_, i) => (
-                      <Star key={i} className="w-4 h-4 fill-current" />
-                    ))}
-                  </div>
-
-                  <p className="text-sm sm:text-base text-white/90 leading-relaxed italic flex-1">
-                    &ldquo;{t.quote}&rdquo;
-                  </p>
-
-                  <div className="mt-6 pt-5 border-t border-white/10 flex items-center gap-3">
-                    <div className={`w-11 h-11 rounded-full bg-gradient-to-br ${t.avatarColor} flex items-center justify-center font-bold text-white text-sm shadow-lg shrink-0`}>
-                      {t.avatar}
-                    </div>
-                    <div>
-                      <div className="font-extrabold text-white text-sm">{t.author}</div>
-                      <div className="text-xs text-purple-300">
-                        {t.role},{" "}
-                        <span className="text-purple-200 font-semibold">{t.company}</span>
+                    <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-3">
+                        <img
+                          src={t.avatar}
+                          alt={t.author}
+                          className="w-10 h-10 rounded-full object-cover shrink-0"
+                        />
+                        <div>
+                          <div className="font-bold text-white text-sm">{t.author}</div>
+                          <div className="text-[11px] text-purple-300">
+                            {t.role}, {t.company}
+                          </div>
+                        </div>
+                      </div>
+                      <div className="flex text-amber-400 gap-0.5 shrink-0">
+                        {[...Array(t.rating)].map((_, i) => (
+                          <Star key={i} className="w-3.5 h-3.5 fill-current" />
+                        ))}
                       </div>
                     </div>
                   </div>
-                </div>
-              </Reveal>
-            ))}
+                </Reveal>
+              ))}
+            </div>
+
+            {/* Right arrow */}
+            <button
+              onClick={next}
+              className="hidden lg:flex w-9 h-9 rounded-full border border-white/20 bg-white/5 text-white hover:bg-white/15 items-center justify-center transition-colors shrink-0"
+              aria-label="Next"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+
+            {/* Mobile arrows */}
+            <div className="flex lg:hidden items-center gap-3">
+              <button onClick={prev} className="w-9 h-9 rounded-full border border-white/20 bg-white/5 text-white flex items-center justify-center" aria-label="Previous">
+                <ChevronLeft className="w-4 h-4" />
+              </button>
+              <button onClick={next} className="w-9 h-9 rounded-full border border-white/20 bg-white/5 text-white flex items-center justify-center" aria-label="Next">
+                <ChevronRight className="w-4 h-4" />
+              </button>
+            </div>
           </div>
         </div>
+
+        {/* Bottom bar: CTA */}
+        <div className="relative overflow-hidden"
+          style={{ background: "linear-gradient(110deg, #FF6B35 0%, #FF4D8D 45%, #7B2FF7 100%)" }}>
+
+          {/* decorative rocket + chart (right) */}
+          <Rocket className="hidden md:block absolute -right-2 top-3 w-16 h-16 text-white/20 rotate-45" />
+          <BarChart3 className="hidden md:block absolute right-10 bottom-3 w-12 h-12 text-white/20" />
+
+          <div className="relative flex flex-col lg:flex-row items-center justify-between gap-6 px-6 sm:px-10 py-8">
+
+            {/* Left: megaphone */}
+            <div className="hidden sm:flex shrink-0">
+              <Megaphone className="w-16 h-16 text-white -rotate-12 drop-shadow-lg" strokeWidth={1.5} />
+            </div>
+
+            {/* Middle: text */}
+            <div className="flex-1 text-center lg:text-left">
+              <span className="inline-block text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-2"
+                style={{ color: "#fff", background: "rgba(255,255,255,0.18)", border: "1px solid rgba(255,255,255,0.3)" }}>
+                Ready to Grow?
+              </span>
+              <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-snug">
+                Let&apos;s Make Your Brand Impossible to Ignore.
+              </h3>
+            </div>
+
+            {/* Right: buttons */}
+            <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
+              <button className="inline-flex items-center gap-2 pl-5 pr-2 py-2 rounded-full font-bold text-sm text-white bg-black/80 hover:bg-black transition-colors">
+                Book a Free Call
+                <span className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center">
+                  <ArrowUpRight className="w-3.5 h-3.5" />
+                </span>
+              </button>
+              <button className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm text-gray-900 bg-white hover:bg-gray-100 transition-colors">
+                <MessageCircle className="w-4 h-4 text-emerald-500 fill-emerald-500/20" />
+                Chat on WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );

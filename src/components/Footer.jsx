@@ -32,33 +32,45 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-12 md:px-12">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
           {/* Brand + socials */}
-          <div>
-            <Link to="/" className="inline-block">
-              <img
-                src="/voopify.png"
-                alt="Voopify Logo"
-                className="h-10 w-auto object-contain"
-              />
-            </Link>
+          
+<div>
+  <Link to="/" className="inline-flex items-center">
+    <img
+      src="/voop.png"
+      alt="Voopify Logo"
+      className="h-20 sm:h-14 md:h-16 lg:h-20 w-auto max-w-[180px] object-contain"
+    />
+  </Link>
 
-            <div className="mt-5 flex items-center gap-3">
-              {socials.map((s) => {
-                const Icon = s.icon;
-                return (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    aria-label={s.label}
-                    className="flex h-9 w-9 items-center justify-center rounded-full bg-white/10 text-white transition hover:bg-gradient-to-br hover:from-indigo-500 hover:to-fuchsia-500"
-                  >
-                    <Icon className="h-4 w-4" />
-                  </a>
-                );
-              })}
-            </div>
-          </div>
+  <div className="mt-5 flex items-center gap-3">
+    {socials.map((s) => {
+      const Icon = s.icon;
+
+      return (
+        <a
+          key={s.label}
+          href={s.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={s.label}
+          className="flex h-10 w-10 shrink-0 items-center justify-center
+                     rounded-full border border-white/10
+                     bg-white/5 text-white
+                     transition-all duration-300
+                     hover:-translate-y-1
+                     hover:border-transparent
+                     hover:bg-gradient-to-br
+                     hover:from-indigo-500 hover:to-fuchsia-500
+                     focus-visible:outline-none
+                     focus-visible:ring-2 focus-visible:ring-indigo-400"
+        >
+          <Icon className="h-4 w-4" />
+        </a>
+      );
+    })}
+  </div>
+</div>
+
 
           {/* Quick Links */}
           <div>
