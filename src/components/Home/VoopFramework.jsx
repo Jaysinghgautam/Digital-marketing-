@@ -67,34 +67,38 @@ export default function VoopFramework() {
     >
       <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-14">
-          <Reveal variant="fade">
-            <span
-              className="inline-flex items-center gap-2 text-xs font-bold tracking-widest uppercase px-4 py-1.5 rounded-full"
-              style={{
-                color: "#7B2FF7",
-                background: "rgba(123,47,247,0.08)",
-                border: "1px solid rgba(123,47,247,0.2)",
-              }}
-            >
-              Our Process
-            </span>
-          </Reveal>
+      
+<div className="mb-14 text-left">
+  <Reveal variant="fade">
+    <span
+      className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest"
+      style={{
+        color: "#7B2FF7",
+        background: "rgba(123,47,247,0.08)",
+        border: "1px solid rgba(123,47,247,0.2)",
+      }}
+    >
+      Our Process
+    </span>
+  </Reveal>
 
-          <Reveal variant="up" delay={150}>
-            <h2 className="mt-4 text-3xl sm:text-5xl font-black tracking-tight leading-tight text-gray-900">
-              Simple Steps.{" "}
-              <span style={{ color: "#7B2FF7" }}>Powerful Results.</span>
-            </h2>
-          </Reveal>
+  <Reveal variant="up" delay={150}>
+    <h2 className="mt-4 text-3xl font-black leading-tight tracking-tight text-gray-900 sm:text-5xl">
+      Simple Steps.{" "}
+      <span style={{ color: "#7B2FF7" }}>
+        Powerful Results.
+      </span>
+    </h2>
+  </Reveal>
 
-          <Reveal variant="up" delay={250}>
-            <p className="mt-4 text-gray-500 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
-              Our streamlined 5-step process ensures consistent quality, timely
-              delivery, and measurable growth every month.
-            </p>
-          </Reveal>
-        </div>
+  <Reveal variant="up" delay={250}>
+    <p className="mt-4 max-w-2xl text-base leading-relaxed text-gray-500 sm:text-lg">
+      Our streamlined 5-step process ensures consistent quality, timely
+      delivery, and measurable growth every month.
+    </p>
+  </Reveal>
+</div>
+
 
         {/* Steps - icon left, text right, arrows between */}
         <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-6 lg:gap-2">
