@@ -1,151 +1,171 @@
-import { ShieldAlert, CheckCircle, TrendingUp, Sparkles, Building, Rocket } from "lucide-react";
-import Reveal from "../Reveal";
 
-const ROADMAP_STEPS = [
-  {
-    year: "Year 1",
-    target: "30–35 Recurring Clients",
-    focus: "Prove the model in launch cities, founder-led sales, SOPs documented, client retention ≥ 80%.",
-  },
-  {
-    year: "Year 2",
-    target: "75–90 Recurring Clients",
-    focus: "Pod structure introduced (Account Manager + Creative + Content owning 20–25 clients each), EBITDA turns positive.",
-  },
-  {
-    year: "Year 3",
-    target: "150–180+ Clients",
-    focus: "Specialized vertical teams (Manufacturing, D2C, Healthcare), white-label pilots, EBITDA margin ~34%.",
-  },
-  {
-    year: "Vision 2035",
-    target: "5,000+ Businesses in 25+ Cities",
-    focus: "India's premier hybrid human + AI creative growth partner recognized across all commercial hubs.",
-  },
-];
+import React from "react";
 
-export default function AboutStory() {
+export default function OurStory() {
   return (
-    <section id="founder-story" className="py-20 md:py-28 bg-[#070d18] text-white relative">
-      <div className="max-w-7xl mx-auto px-5 sm:px-6 relative z-10">
-        
-        {/* Story Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          
-          <div className="space-y-6">
-            <Reveal variant="fade">
-              <span className="text-xs font-bold uppercase tracking-widest text-cyan-400 font-mono">
-                The Founder Thesis
+    <section className="w-full overflow-hidden bg-white py-10 sm:py-14">
+      <div className="mx-auto max-w-[1440px] px-5 sm:px-8 lg:px-12">
+
+        {/* TOP SECTION */}
+        <div className="grid grid-cols-1 items-center gap-8 lg:grid-cols-[0.92fr_1.08fr] lg:gap-8">
+
+          {/* LEFT CONTENT */}
+          <div className="min-w-0">
+            <span className="mb-4 inline-flex rounded-full bg-[#F0EDFF] px-3 py-1 text-[10px] font-bold tracking-widest text-[#7552F5]">
+              OUR STORY
+            </span>
+
+            <h2 className="mb-5 text-3xl font-extrabold leading-[1.12] tracking-tight text-[#11152B] sm:text-4xl xl:text-[42px]">
+              A Brand Built on
+              <br />
+              Creativity, Strategy
+              <br />
+              and{" "}
+              <span className="text-[#F02D83]">
+                Real Results.
               </span>
-            </Reveal>
+            </h2>
 
-            <Reveal variant="up" delay={100}>
-              <h2 className="text-3xl sm:text-4xl font-black tracking-tight leading-tight">
-                The Massive Marketing Gap in{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-pink-400 to-cyan-400">
-                  India&apos;s MSME Ecosystem.
-                </span>
-              </h2>
-            </Reveal>
+            <p className="mb-4 max-w-[490px] text-[13px] leading-[1.65] text-[#62677A] sm:text-sm">
+              Voopify was founded with a simple belief — every brand,
+              no matter the size, deserves powerful and consistent
+              social media presence. We saw businesses struggling
+              to keep up with the fast-changing digital world, so we
+              decided to build a solution that handles everything
+              from strategy to content to publishing.
+            </p>
 
-            <Reveal variant="up" delay={200}>
-              <div className="space-y-4 text-sm sm:text-base text-slate-300 leading-relaxed">
-                <p>
-                  India has over <strong>63 million MSMEs</strong> contributing roughly 30% of GDP and 45% of exports. Yet fewer than 20% maintain a professionally run digital presence, and almost none run structured performance marketing.
-                </p>
-                <p>
-                  Why? Because traditional agency models are broken for SMEs:
-                </p>
-                <ul className="space-y-2.5 pt-2 text-sm text-slate-400">
-                  <li className="flex items-start gap-2.5">
-                    <ShieldAlert className="w-4 h-4 text-rose-400 shrink-0 mt-1" />
-                    <span><strong>Big Legacy Agencies</strong> charge ₹2–5L/month minimums and dump junior interns on smaller accounts.</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <ShieldAlert className="w-4 h-4 text-amber-400 shrink-0 mt-1" />
-                    <span><strong>Freelancer Stacks</strong> create fragmented branding, missed deadlines, and zero commercial accountability.</span>
-                  </li>
-                  <li className="flex items-start gap-2.5">
-                    <ShieldAlert className="w-4 h-4 text-purple-400 shrink-0 mt-1" />
-                    <span><strong>In-House Hiring</strong> is too expensive and complex for a business doing ₹2–50 Cr in annual turnover.</span>
-                  </li>
-                </ul>
-                <p className="pt-2 font-medium text-white">
-                  VOOPIFY is built to solve this: an outsourced, disciplined marketing department running 4 core practices on predictable monthly retainers.
-                </p>
-              </div>
-            </Reveal>
-          </div>
-
-          {/* Right: Compounding Model Box */}
-          <div>
-            <Reveal variant="scale" delay={200}>
-              <div className="p-8 rounded-3xl bg-[#091122] border border-white/10 shadow-2xl space-y-6">
-                <div className="flex items-center gap-2">
-                  <Sparkles className="w-5 h-5 text-cyan-400" />
-                  <h3 className="text-xl font-extrabold text-white">
-                    Why the Model Compounds
-                  </h3>
-                </div>
-
-                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
-                  Our business becomes more profitable, not less, as we scale. Fixed production infrastructure (templates, SOP checklists, and supervised AI drafting workflows) is reused across hundreds of similar-sized SME clients.
-                </p>
-
-                <div className="space-y-4 pt-2">
-                  <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/[0.07]">
-                    <div className="text-xs font-bold text-cyan-300 uppercase tracking-wider font-mono">
-                      Pricing Philosophy
-                    </div>
-                    <div className="text-xs sm:text-sm text-slate-300 mt-1">
-                      Transparent monthly retainers, defined deliverables, clear SLAs, and measurable business outcomes — never billing by design hours.
-                    </div>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-white/[0.03] border border-white/[0.07]">
-                    <div className="text-xs font-bold text-pink-300 uppercase tracking-wider font-mono">
-                      Compounding Assets
-                    </div>
-                    <div className="text-xs sm:text-sm text-slate-300 mt-1">
-                      Every brand guideline, high-converting ad angle, and SEO keyword equity gets more valuable month-over-month.
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-
-        </div>
-
-        {/* Strategic Roadmap Grid */}
-        <div className="mt-20 pt-16 border-t border-white/[0.08]">
-          <div className="max-w-2xl mx-auto text-center mb-12">
-            <h3 className="text-2xl sm:text-3xl font-black text-white">
-              The Strategic Roadmap &amp; Ambition
-            </h3>
-            <p className="mt-2 text-xs sm:text-sm text-slate-400">
-              Clear, disciplined milestones guiding VOOPIFY from launch to India&apos;s leading growth platform.
+            <p className="max-w-[490px] text-[13px] leading-[1.65] text-[#62677A] sm:text-sm">
+              Today, we help brands across industries create impactful
+              content, engage their audience and achieve real business
+              growth through social media.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {ROADMAP_STEPS.map((step, idx) => (
-              <Reveal key={idx} variant="up" delay={idx * 120}>
-                <div className="p-6 rounded-2xl bg-[#091224] border border-white/[0.08] hover:border-cyan-400/30 transition-all flex flex-col justify-between h-full">
-                  <div>
-                    <div className="text-xs font-mono font-bold text-cyan-400 px-2 py-0.5 rounded bg-cyan-400/10 inline-block mb-3">
-                      {step.year}
-                    </div>
-                    <div className="text-base font-extrabold text-white mb-2">
-                      {step.target}
-                    </div>
-                    <p className="text-xs text-slate-400 leading-relaxed">
-                      {step.focus}
-                    </p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
+          {/* RIGHT IMAGE COMPOSITION */}
+          <div className="relative mx-auto w-full max-w-[620px] lg:ml-auto">
+
+            {/* Decorative shapes */}
+            <div className="absolute left-[12%] top-[5%] h-20 w-24 rounded-tl-[30px] rounded-br-[24px] bg-[#B45AF5] sm:h-28 sm:w-32" />
+
+            <div className="absolute right-[2%] top-[18%] h-40 w-20 rounded-full bg-[#FFD36B] sm:h-52 sm:w-24" />
+
+            {/* Main office image */}
+            <div className="relative ml-[19%] w-[77%] overflow-hidden rounded-[20px] border-[3px] border-white shadow-[0_10px_30px_rgba(31,24,74,0.12)]">
+              <img
+                src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1000&auto=format&fit=crop&q=85"
+                alt="Voopify creative office"
+                className="h-[240px] w-full object-cover sm:h-[320px] lg:h-[340px]"
+              />
+            </div>
+
+            {/* Team meeting image */}
+            <div className="absolute left-[1%] top-[22%] z-10 w-[43%] rotate-[-3deg] overflow-hidden rounded-[16px] border-[4px] border-white shadow-[0_8px_24px_rgba(31,24,74,0.15)]">
+              <img
+                src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&auto=format&fit=crop&q=85"
+                alt="Team planning and collaboration"
+                className="h-[105px] w-full object-cover sm:h-[145px] lg:h-[150px]"
+              />
+            </div>
+
+            {/* Content creation image */}
+   <div className="absolute bottom-[1%] left-[9%] z-20 w-[46%] rotate-[3deg] overflow-hidden rounded-[16px] border-[4px] border-white shadow-[0_8px_24px_rgba(31,24,74,0.15)]">
+  <img
+    src="https://media.istockphoto.com/id/2156387160/photo/hispanic-latin-american-couple-software-engineer-developer-use-computer-work-on-program.webp?a=1&b=1&s=612x612&w=0&k=20&c=MwCwZmlsa6rhG5ppvCCN-OR67mdcx2WkD5SUouSzSrE="
+    alt="Creative content production"
+    className="h-[110px] w-full object-cover sm:h-[150px] lg:h-[155px]"
+  />
+</div>
+
+            {/* Ideas into Impact card */}
+            <div className="absolute bottom-[17%] right-0 z-30 flex items-center gap-3 rounded-xl border border-[#F1EFF8] bg-white px-3 py-3 shadow-[0_8px_24px_rgba(31,24,74,0.12)] sm:right-[-1%] sm:px-4 sm:py-4">
+              <span className="text-3xl">💡</span>
+              <div>
+                <p className="text-xs font-extrabold text-[#15131F] sm:text-sm">
+                  Ideas
+                </p>
+                <p className="text-[10px] font-semibold text-[#62677A] sm:text-xs">
+                  into Impact
+                </p>
+              </div>
+            </div>
+
+            {/* Decorative dots */}
+            <span className="absolute left-[5%] bottom-[23%] text-xl font-bold text-[#8A3FFC]">
+              ✣
+            </span>
+            <span className="absolute right-[1%] top-[12%] text-xl font-bold text-[#FF9D25]">
+              ✣
+            </span>
+          </div>
+        </div>
+
+        {/* MISSION / VISION / VALUES */}
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:mt-10 lg:grid-cols-3">
+
+          {/* OUR MISSION */}
+          <div className="flex gap-4 rounded-2xl border border-[#F0EFF9] bg-[#F8F8FE] p-5 sm:p-6">
+            <div className="shrink-0 text-[38px] leading-none text-[#8A3FFC]">
+              ◎
+            </div>
+
+            <div>
+              <h3 className="mb-3 text-base font-extrabold text-[#15131F]">
+                Our Mission
+              </h3>
+              <p className="text-xs leading-[1.7] text-[#62677A] sm:text-[13px]">
+                To empower brands with creative, result-driven social media
+                solutions that build visibility, engagement and long-term
+                growth.
+              </p>
+            </div>
+          </div>
+
+          {/* OUR VISION */}
+          <div className="flex gap-4 rounded-2xl border border-[#F0EFF9] bg-[#F8F8FE] p-5 sm:p-6">
+            <div className="shrink-0 text-[38px] leading-none text-[#1769E8]">
+              ◎
+            </div>
+
+            <div>
+              <h3 className="mb-3 text-base font-extrabold text-[#15131F]">
+                Our Vision
+              </h3>
+              <p className="text-xs leading-[1.7] text-[#62677A] sm:text-[13px]">
+                To be a leading digital marketing partner known for
+                creativity, trust and measurable results across global
+                markets.
+              </p>
+            </div>
+          </div>
+
+          {/* OUR VALUES */}
+          <div className="flex gap-4 rounded-2xl border border-[#F0EFF9] bg-[#F8F8FE] p-5 sm:p-6 sm:col-span-2 lg:col-span-1">
+            <div className="shrink-0 text-[38px] leading-none text-[#FF922E]">
+              ♢
+            </div>
+
+            <div className="min-w-0">
+              <h3 className="mb-3 text-base font-extrabold text-[#15131F]">
+                Our Values
+              </h3>
+
+              <ul className="space-y-2 text-[11px] leading-relaxed text-[#62677A] sm:text-xs">
+                {[
+                  "Creativity in Everything We Do",
+                  "Transparency & Honest Communication",
+                  "Client Success is Our Success",
+                  "Continuous Learning & Innovation",
+                ].map((value) => (
+                  <li key={value} className="flex items-start gap-2">
+                    <span className="mt-0.5 flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-[#8A3FFC] text-[9px] text-white">
+                      ✓
+                    </span>
+                    <span>{value}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
         </div>
 
