@@ -6,6 +6,7 @@ import WhyUs from "../components/Home/WhyUs";
 import PricingSection from "../components/Home/PricingSection";
 import Testimonials from "../components/Home/Testimonials";
 import HomeCTA from "../components/Home/HomeCTA";
+import FeaturedWork from "../components/Home/Featuredwork";
 
 /**
  * Home Page Component
@@ -28,25 +29,27 @@ export default function Home() {
       <Hero />
 
       {/* 2. Key Metrics & Impact Numbers */}
-      <StatsBar />
+      {/* <StatsBar /> */}
 
-      {/* 3. The 4-Pillar VOOP Framework */}
-      <VoopFramework />
 
       {/* 4. Core Services Showcase */}
       <ServicesPreview />
-
+      <FeaturedWork/>
       {/* 5. Why Choose Voopify & Comparison */}
-      <WhyUs />
+
+      
+      {/* 3. The 4-Pillar VOOP Framework */}
+      <VoopFramework />
+      {/* <WhyUs /> */}
 
       {/* 6. Transparent Retainer Pricing */}
-      <PricingSection />
+      {/* <PricingSection /> */}
 
       {/* 7. Client Reviews & Testimonials */}
       <Testimonials />
 
       {/* 8. Final Call to Action */}
-      <HomeCTA />
+      {/* <HomeCTA /> */}
     </div>
   );
 }

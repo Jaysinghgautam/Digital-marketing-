@@ -109,23 +109,6 @@ export default function Navbar() {
               className="h-10 sm:h-12 w-auto max-w-[200px] object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </div>
-
-          {/* Subtitle tag on larger screens */}
-          <div className="hidden lg:flex flex-col border-l border-gray-200 pl-3">
-            <span
-              className="text-[10px] uppercase font-extrabold tracking-widest"
-              style={{
-                background: "linear-gradient(135deg,#7B2FF7,#FF6B35)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-              }}
-            >
-              Creative That Grows Business
-            </span>
-            <span className="text-[9px] text-gray-400 font-medium">
-              SME Growth Partner
-            </span>
-          </div>
         </Link>
 
         {/* ── Desktop Navigation ── */}
