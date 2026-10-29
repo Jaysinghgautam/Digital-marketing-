@@ -157,49 +157,6 @@ export default function Testimonials() {
             </div>
           </div>
         </div>
-
-        {/* Bottom bar: CTA */}
-        <div className="relative overflow-hidden"
-          style={{ background: "linear-gradient(110deg, #FF6B35 0%, #FF4D8D 45%, #7B2FF7 100%)" }}>
-
-          {/* decorative rocket + chart (right) */}
-          <Rocket className="hidden md:block absolute -right-2 top-3 w-16 h-16 text-white/20 rotate-45" />
-          <BarChart3 className="hidden md:block absolute right-10 bottom-3 w-12 h-12 text-white/20" />
-
-          <div className="relative flex flex-col lg:flex-row items-center justify-between gap-6 px-6 sm:px-10 py-8">
-
-            {/* Left: megaphone */}
-            <div className="hidden sm:flex shrink-0">
-              <Megaphone className="w-16 h-16 text-white -rotate-12 drop-shadow-lg" strokeWidth={1.5} />
-            </div>
-
-            {/* Middle: text */}
-            <div className="flex-1 text-center lg:text-left">
-              <span className="inline-block text-[10px] font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-2"
-                style={{ color: "#fff", background: "rgba(255,255,255,0.18)", border: "1px solid rgba(255,255,255,0.3)" }}>
-                Ready to Grow?
-              </span>
-              <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-white leading-snug">
-                Let&apos;s Make Your Brand Impossible to Ignore.
-              </h3>
-            </div>
-
-            {/* Right: buttons */}
-            <div className="flex flex-col sm:flex-row items-center gap-3 shrink-0">
-              <button className="inline-flex items-center gap-2 pl-5 pr-2 py-2 rounded-full font-bold text-sm text-white bg-black/80 hover:bg-black transition-colors">
-                Book a Free Call
-                <span className="w-7 h-7 rounded-full bg-white/15 flex items-center justify-center">
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </span>
-              </button>
-              <button className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm text-gray-900 bg-white hover:bg-gray-100 transition-colors">
-                <MessageCircle className="w-4 h-4 text-emerald-500 fill-emerald-500/20" />
-                Chat on WhatsApp
-              </button>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
   );

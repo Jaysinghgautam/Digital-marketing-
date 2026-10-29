@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Linkedin, Youtube, Mail, MapPin } from "lucide-react";
+import GrowBrandBanner from "./GrowBrandBanner.jsx"
 
 const quickLinks = [
   { label: "Home", to: "/" },
@@ -27,7 +28,9 @@ const socials = [
 ];
 
 export default function Footer() {
-  return (
+  return ( 
+    <>
+    <GrowBrandBanner />
     <footer className="bg-gradient-to-br from-[#241046] via-[#1a0d33] to-[#140a28] text-slate-300">
       <div className="mx-auto max-w-7xl px-6 py-12 md:px-12">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
@@ -174,5 +177,6 @@ export default function Footer() {
         </div>
       </div>
     </footer>
+    </>
   );
 }

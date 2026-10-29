@@ -140,7 +140,6 @@ export default function WhyChooseVoopify() {
         </div>
       </div>
 
-    
     </section>
   );
 }
