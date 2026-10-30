@@ -1,6 +1,7 @@
  
 import React from "react";
-import { Linkedin, Instagram, ArrowRight } from "lucide-react";
+import { FaLinkedin, FaInstagram  } from "react-icons/fa6";
+import { ArrowRight } from "lucide-react";
 
 const teamMembers = [
   {
@@ -116,7 +117,7 @@ export default function AboutTeam() {
                     rel="noreferrer"
                     className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#EAF4FF] text-[#0A66C2] transition-all duration-200 hover:bg-[#0A66C2] hover:text-white"
                   >
-                    <Linkedin size={18} strokeWidth={2.5} />
+                    <FaLinkedin size={18} strokeWidth={2.5} />
                   </a>
 
                   <a
@@ -126,7 +127,7 @@ export default function AboutTeam() {
                     rel="noreferrer"
                     className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#FFF0F7] text-[#E1306C] transition-all duration-200 hover:bg-[#E1306C] hover:text-white"
                   >
-                    <Instagram size={18} strokeWidth={2.3} />
+                    <FaInstagram size={18} strokeWidth={2.3} />
                   </a>
                 </div>
               </div>

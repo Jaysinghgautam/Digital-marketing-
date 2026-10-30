@@ -1,17 +1,13 @@
-import ServicesHero from "../components/Services/ServicesHero";
-import ServicesList from "../components/Services/ServicesList";
-import CTABanner from "../components/CTABanner";
+ import React from 'react'
+ import SocialMediaHero from '../components/Services/SocialMediaHero'
+import AboutServices from '../components/Services/AboutService'
+ function Services() {
+   return (
+     <div>
+      <SocialMediaHero/>
+      <AboutServices/>
+     </div>
+   )
+ }
  
-export default function Services() {
-  return (
-    <div className="page-section">
-      <ServicesHero />
-      <ServicesList />
-      <CTABanner
-        title="Ready to turn marketing into predictable growth?"
-        body="Tell us where your pipeline is stalling and we'll help identify the highest-impact lever to pull next."
-        buttonLabel="Book a Free Strategy Call"
-      />
-    </div>
-  );
-}
+ export default Services
